@@ -3,8 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+<link rel="icon" href="./file.gif" type="image/gif">
     <link rel="stylesheet" type="text/css" href="bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="directories.css" />
+
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -66,6 +68,13 @@
         <li>
             <a href="./publications/">
                 <span>Publications</span> (9)
+            </a>    
+           
+        </li>
+		
+		<li>
+            <a href="./DAHLIA/">
+                <span>DAHLIA</span>
             </a>    
            
         </li>
@@ -148,10 +157,31 @@
 
         <div class="content-introduction-left-block-element">
         <h3>Degree</h3>
-        <p><span style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">Bachelor in Computer Science, 2011, University of Namur</span>
-		<br style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;" /><span style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">Master in Computer Science, 2013, University of Namur</span></p>
-        </div>
+        <p>
+		<ul style="list-style-type:disc">
+			<li>
+				<span style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">Bachelor in Computer Science, 2011, University of Namur</span>
+				<br style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;" />
+			</li>
+			<li>
+				<span style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">Master in Computer Science, 2013, University of Namur</span></p>
+			</li>
+		</ul>
+		</div>
 
+		<div class="content-introduction-left-block-element">
+        <h3>Theses</h3>
+        <p><span style="color: #203851; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">
+			<ul style="list-style-type:disc">
+				<li><a href="./memoire.pdf">Visualizing SQL Execution Traces for Program Comprehension</a>
+				<br><i>Loup Meurice</i>
+				<br><i>Master Thesis, Computer Science, University of Namur</i>
+				</li>
+			</ul>
+		</span>
+		 </div>
+
+        
         
 
     </div>
@@ -239,20 +269,7 @@ div.social{
 }
 </style>
 
-<script>
-$(document).ready(function(){
-    $('.content-introduction-right-element div').each(function(){
-        if( $(this).height() > 470 ){
-            $(this).addClass('scroll');
-        }
-    });
 
-    if( $('img.img-polaroid').attr('src').length > 0 ){
-    console.log('echo');
-        $('div#content-introduction-left div.left').width( $('div#content-introduction-left').width()-120 );
-    }
-});
-</script>
 
 </div>
 
