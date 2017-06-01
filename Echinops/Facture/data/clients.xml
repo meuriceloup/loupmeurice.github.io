@@ -1,0 +1,1396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+  <client>
+    <name>MADAME    CONTRARDY    A</name>
+    <street>RUE WIERTZ 12</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>VOYAGES  MOSAN</name>
+    <street>AVENUE W. CHURCHILL, 5</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>465069270</tva>
+  </client>
+  <client>
+    <name>BNP  PARIBAS  FORTIS  SA</name>
+    <street>A l'attention de Madame Lebailly</street>
+    <box>MONTAGNE DU PARC 3</box>
+    <city>1000 BRUXELLES</city>
+    <country>BELGIQUE</country>
+    <tva>403199702</tva>
+  </client>
+  <client>
+    <name>AUX  P'TITS  DELICES</name>
+    <street>PLACE ALBERT 1ER, 7</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>690457876</tva>
+  </client>
+  <client>
+    <name>ESPACE  19</name>
+    <street>RUE SAX , 19</street>
+    <box />
+    <city>DINANT 5500</city>
+    <country>BE</country>
+    <tva>722397350</tva>
+  </client>
+  <client>
+    <name>SPRL  DECA  DENTAL</name>
+    <street>AVENUE DE MENDIETTA, 16</street>
+    <box />
+    <city>5500 ANSEREMME</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  UDYFISC</name>
+    <street>RUE DE FAUMONT, 26</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country>BE</country>
+    <tva>479661337</tva>
+  </client>
+  <client>
+    <name>ENTREPRISE  GEORGES</name>
+    <street>RUE DE LE GRELE, 17</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>0871379209</tva>
+  </client>
+  <client>
+    <name>PATISSERIE  JACOBS</name>
+    <street>RUE GRANDE, 147</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>616691851</tva>
+  </client>
+  <client>
+    <name>SPRL  REGINE  ET  PATRICK</name>
+    <street>RUE CAUSSIN, 95</street>
+    <box />
+    <city>5500 ANSEREMME</city>
+    <country>BE</country>
+    <tva>442328809</tva>
+  </client>
+  <client>
+    <name>SPRL  COPASS</name>
+    <street>BOIS DE DEVANT HOUX, 45</street>
+    <box />
+    <city>5530 HOUX</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>TRIBUNAL  DE  POLICE  DE  NAMUR</name>
+    <street>PLACE ST AUBAIN 5</street>
+    <box />
+    <city>5000 NAMUR</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  CSLG  COUSOT</name>
+    <street>PLACE ALBERT 1ER, 11</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  BUREAUX  SERVICES  MEYFROIDT</name>
+    <street>RUE ST JACQUES, 300</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>0442614562</tva>
+  </client>
+  <client>
+    <name>SPRL  AU  PLAISIR...</name>
+    <street>RUE DES GAUX 72</street>
+    <box />
+    <city>5541 HASTIERE-PAR-DELA</city>
+    <country />
+    <tva>0656615467</tva>
+  </client>
+  <client>
+    <name>INSTITUT  JULIE  PIERRET</name>
+    <street>ZONING DE LA VOIX CUIVREE, 2A</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country>BE</country>
+    <tva>722498659</tva>
+  </client>
+  <client>
+    <name>HOCQUET  DIDIER</name>
+    <street>MONTAGNE DE LA CROIX, 73</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>0825533445</tva>
+  </client>
+  <client>
+    <name>BIJOUTERIE  CHRISTIAN  PAUL</name>
+    <street>RUE LEOPOLD, 18</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>722123131</tva>
+  </client>
+  <client>
+    <name>CHU  MME  CABADES  E.  BLOC  OPERATOIRE</name>
+    <street>RUE ST JACQUES 501</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>RIDELLE  CHRISTIANE</name>
+    <street>RUE DE LA SPECHE, 8</street>
+    <box />
+    <city>5523 SOMMIERE</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>HATERT  CATHERINE</name>
+    <street>QUAI CULOT, 11</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>OREM</name>
+    <street>RUE D ANSEREMME 88</street>
+    <box />
+    <city>5500 DREHANCE DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ROSE  O'VERT  FLEURISTE</name>
+    <street>RUE DE LA STATION, 9A</street>
+    <box />
+    <city>6900 MARLOIE</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  LA  PAUSE  GOURMANDE</name>
+    <street>RUE GRANDE, 154</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ADMINISTRATION  COMMUNALE</name>
+    <street>RUE GRANDE, 112</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  JEAN  PIERRE  DEVILLE</name>
+    <street>HUBAILLE, 3</street>
+    <box />
+    <city>CELLES 5561</city>
+    <country>BE</country>
+    <tva>068439668</tva>
+  </client>
+  <client>
+    <name>ROUARD  BARBARA</name>
+    <street>RUE BARRE, 32</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0542701241</tva>
+  </client>
+  <client>
+    <name>BOULANGERIE  DEFOSSEZ</name>
+    <street>GEMECHENNE, 25</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>855280573</tva>
+  </client>
+  <client>
+    <name>SPRL  CHASSIS  PIERRET</name>
+    <street>ZONING DE LA VOIX CUIVREE, 2</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country>BE</country>
+    <tva>465136774</tva>
+  </client>
+  <client>
+    <name>SPRL  PHARMACIE  LABAR</name>
+    <street>RUE GRANDE , 123</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>0888126753</tva>
+  </client>
+  <client>
+    <name>LE  VIEUX  WAULSORT</name>
+    <street>RUE DE MEUSE 7</street>
+    <box />
+    <city>5540 WAULSORT</city>
+    <country />
+    <tva>722449070</tva>
+  </client>
+  <client>
+    <name>S.A.  PIROT</name>
+    <street>RUE LEOPOLD 11</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>442725024</tva>
+  </client>
+  <client>
+    <name>CFP  MOSAN</name>
+    <street>AVENUE W CHURCHILL, 36</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>422461922</tva>
+  </client>
+  <client>
+    <name>PRO  EURO  MAT</name>
+    <street>RUE DU PEQUET , 2</street>
+    <box />
+    <city>5590 ACHENE</city>
+    <country>BE</country>
+    <tva>441009114</tva>
+  </client>
+  <client>
+    <name>RESIDENCE  CHURCHILL</name>
+    <street>RUE DU COLLEGE , 2</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>HOME  SWEET  HOME</name>
+    <street>ROUMONT 3A</street>
+    <box />
+    <city>6890 LIBIN</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>LE  JARDIN  DE  FIORINE</name>
+    <street>RUE COUSOT, 3</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>442311883</tva>
+  </client>
+  <client>
+    <name>ENTRE  REVE  ET  REALITE</name>
+    <street>PLACE CARDINAL MERCIER, 11</street>
+    <box>BOITE 3</box>
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>722457384</tva>
+  </client>
+  <client>
+    <name>SPRL  OPTIQUE  COLLIN</name>
+    <street>RUE BRIBOSIA 6</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>0878798274</tva>
+  </client>
+  <client>
+    <name>CHAUSSURES  LUPCIN  BAYONNET</name>
+    <street>RUE GRANDE, 50</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>722219339</tva>
+  </client>
+  <client>
+    <name>BAYARD  TC  DINANTAIS  MME  MONFORT</name>
+    <street>RUE DU REFUGE 48</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>FEDERATION  DES  DIRECTEURS  GENERAUX</name>
+    <street>DE LA PROVINCE DE NAMUR</street>
+    <box>RRUE DE MONIN 76</box>
+    <city>5562 HAMOIS</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>INSTITUT  TECHNIQUE  MR  BERTY</name>
+    <street>HERBUCHENNE   1</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SI  ONHAYE</name>
+    <street>RUE LES COMMUNS, 23</street>
+    <box />
+    <city>5523 WEILLEN</city>
+    <country>BE</country>
+    <tva>420677221</tva>
+  </client>
+  <client>
+    <name>CHEZ  NINO</name>
+    <street>RUE SAX 14</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0894680488</tva>
+  </client>
+  <client>
+    <name>MONSIEUR  JEAN-OLIVIER  MEYFROIDT</name>
+    <street>CHARREAU DE DREHANCE , 21</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  BETTER  FOOT  DINANT</name>
+    <street>RUE SAINT JACQUES, 300</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CS  ONHAYE</name>
+    <street>RUE DU FORBOT 24</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country>BELGIQUE</country>
+    <tva>456609385</tva>
+  </client>
+  <client>
+    <name>FEDERATION  PS  DINANT  PHILIPPEVILLE</name>
+    <street>RUE HUYBRECHTS , 1 A O</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>INSTITUT  DE  BEAUTE  REGINE  RAULIN</name>
+    <street>RUE SAX, 11</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>722304956</tva>
+  </client>
+  <client>
+    <name>IDEES  VERTES</name>
+    <street>RUE DU TCHAURNIA, 5</street>
+    <box />
+    <city>5560 MESNIL ST BLAISE</city>
+    <country>BELGIQUE</country>
+    <tva>0894437094</tva>
+  </client>
+  <client>
+    <name>SPRL  LA  COLLEGIALE</name>
+    <street>RUE SAX, 2</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>450838380</tva>
+  </client>
+  <client>
+    <name>TIF  ET  TONDU</name>
+    <street>RUE GRANDE , 8</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>722469559</tva>
+  </client>
+  <client>
+    <name>CENDRILLON  CHAUSSURES</name>
+    <street>RUE GRANDE, 81</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0842744215</tva>
+  </client>
+  <client>
+    <name>AGENCE  CENTURY  DEMEUSE</name>
+    <street>RUE GRANDE, 2</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0875888224</tva>
+  </client>
+  <client>
+    <name>SCRL  LA  DINANTAISE</name>
+    <street>PLACE ST NICOLAS, 3</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>NON ASSUJETTI</tva>
+  </client>
+  <client>
+    <name>BOUILLON  JEAN-MARC</name>
+    <street>RUE ALEXANDRE DAOUST, 38</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>COUQUES  V.COLLARD</name>
+    <street>RUE EN RHEE 24</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>462606064</tva>
+  </client>
+  <client>
+    <name>SPRL  A  D  N</name>
+    <street>RUE DE FRUMONT</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country />
+    <tva>0463201922</tva>
+  </client>
+  <client>
+    <name>SAMDAM  S.A.</name>
+    <street>VAN LANGENHOVESTRAAT, 13</street>
+    <box />
+    <city>9300 AALST</city>
+    <country>BELGIQUE</country>
+    <tva>602653532</tva>
+  </client>
+  <client>
+    <name>SPRL  PIGNEUR  SPORTS</name>
+    <street>PONT D'AMOUR , 8</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>417334778</tva>
+  </client>
+  <client>
+    <name>MR  DERMIEN    VETERANS  LEOPOLD  III</name>
+    <street>FOND AL GOTTE         12</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CERCLE  SPORTIF</name>
+    <street>QUAI J. B. CULOT, 24</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>S.L.F.P.</name>
+    <street>QUAI J. B. CULOT , 24</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ZONE  DE  POLICE  HAUTE  MEUSE</name>
+    <street>R.L. ET V. BARRE, 26</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MONSIEUR  JEAN  MARC  BOUILLON</name>
+    <street>RUE DAOUST 38</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ECOLE  NOTRE  DAME  DINANT</name>
+    <street>RUE EN RHEE, 41</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  BIJOUTERIE  J-L  REMY</name>
+    <street>BOULEVARD W. CHURCHILL, 13</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0840117097</tva>
+  </client>
+  <client>
+    <name>RSC  NEFFE  AUDREY  BERNARD</name>
+    <street>AVENUE DES COMBATTANTS 71</street>
+    <box />
+    <city>5500 DINANT NEFFE</city>
+    <country />
+    <tva>430174016</tva>
+  </client>
+  <client>
+    <name>CHU    UCL  DINANT  GODINNE  STE  ELISABETH</name>
+    <street>MADAME COLLINET</street>
+    <box />
+    <city>RUE SAINT-JACQUES, 501</city>
+    <country>5500 DINANT</country>
+    <tva>0641733885</tva>
+  </client>
+  <client>
+    <name>PS  DINANT      MME  BERNARD  AUDREY</name>
+    <street>AVENUE DES COMBATTANTS 71</street>
+    <box />
+    <city>5500 DINANT NEFFE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ADMINISTRATION  COMMUN.  ONHAYE</name>
+    <street>RUE A. MARTIN, 3</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CAP  SUN  DINANT</name>
+    <street>RUE GRANDE, 13</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0501993410</tva>
+  </client>
+  <client>
+    <name>MADAME  ANNE  GEUDVERT</name>
+    <street>LEOPOLD , 26</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>442311883</tva>
+  </client>
+  <client>
+    <name>INSTITUT  TECHNIQUE  POUSSEUR  G.</name>
+    <street>DOMAINE D'HERBUCHENNE,</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>FRITERIE  LA  GRIPELOTE</name>
+    <street>RUE CAUSSIN , 98</street>
+    <box />
+    <city>5500 ANSEREMME</city>
+    <country>BELGIQUE</country>
+    <tva>0722419574</tva>
+  </client>
+  <client>
+    <name>RCS    BASKET  NATOYE</name>
+    <street>RUE DES RIVIERES 3</street>
+    <box />
+    <city>5530 SPONTIN</city>
+    <country>BELGIQUE</country>
+    <tva>0431129069</tva>
+  </client>
+  <client>
+    <name>SPRL  ARCHITECTURE  LURQUIN</name>
+    <street>RUE SAINT JACQUES , 288 A</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0877809319</tva>
+  </client>
+  <client>
+    <name>ELECTRICITE  FERONT  SPRL</name>
+    <street>RUE DES BOIS DES LOGES, 5</street>
+    <box />
+    <city>5530 DURNAL</city>
+    <country>BELGIQUE</country>
+    <tva>0504861442</tva>
+  </client>
+  <client>
+    <name>SPRLU  GOGENEMED</name>
+    <street>RUE DE LA TASSENIERE, 40</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MONSIEUR  RICHARD  FOURNEAUX</name>
+    <street>RUE DE BONSECOURS, 21</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  F    T    D    Research</name>
+    <street>RUE DES FONDS , 23</street>
+    <box />
+    <city>5537 WARNANT</city>
+    <country>BELGIQUE</country>
+    <tva>470474645</tva>
+  </client>
+  <client>
+    <name>FAUT  PAS  SANS  FER</name>
+    <street>RUE DAOUST , 56</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  ESPACE  KUBE</name>
+    <street>RUE DE DINANT, 379</street>
+    <box />
+    <city>5570 FESCHAUX</city>
+    <country>BELGIQUE</country>
+    <tva>0508522206</tva>
+  </client>
+  <client>
+    <name>SANGLIER  FABIEN</name>
+    <street>RUE SAX, 92</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>S  P  A  F</name>
+    <street>RUE DE MAREDSOUS 10</street>
+    <box />
+    <city>5537 DENEE</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>M  K  REFRIGERATION  MAMBOUR</name>
+    <street>RUE DES BICHES, 9</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>BE0508511216</tva>
+  </client>
+  <client>
+    <name>AMICALE  DE  L'  ATHENEE  A.SAX</name>
+    <street>RUE ST PIERRE, 90</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>DINANT  MOTORS</name>
+    <street>RUE FETIS, 53</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0402541090</tva>
+  </client>
+  <client>
+    <name>SPRL  DOCTEUR  ARMAND  COLINET</name>
+    <street>ROUTE DE PHILIPPEVILLE, 300</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>454187355</tva>
+  </client>
+  <client>
+    <name>SPRL  MIGUEL  ROBA</name>
+    <street>RUE DU FORBO , 10</street>
+    <box />
+    <city>5500 LISOGNE</city>
+    <country>BELGIQUE</country>
+    <tva>884043944</tva>
+  </client>
+  <client>
+    <name>POMME  D'AMOUR</name>
+    <street>RUE GRANDE , 156</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>0859135829</tva>
+  </client>
+  <client>
+    <name>SPRL  FASTREZ</name>
+    <street>RUE DE WESPIN, 80</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>478566326</tva>
+  </client>
+  <client>
+    <name>SPRL  LAMPECCO</name>
+    <street>RUE ST JACQUES, 367</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>444088071</tva>
+  </client>
+  <client>
+    <name>HAPCF  ANSEREMME</name>
+    <street>AVENUE HODGES, 7B</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>NON ASSUJETTI</tva>
+  </client>
+  <client>
+    <name>REGIE  DES  QUARTIERS</name>
+    <street>RUE DES PERDREAUX 15</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ROSELYNE  VERMER</name>
+    <street>RUE DES SORBIERS , 8</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  COMPAGNIE  DES  COPERES</name>
+    <street>BON AIR,11</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>LA  BRICOLETTE</name>
+    <street>GRAND'ROUTE DE CINEY 1</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country>BELGIQUE</country>
+    <tva>0821215955</tva>
+  </client>
+  <client>
+    <name>MADAME  RONVEAUX  MURIELLE</name>
+    <street>RUE DE TARAVISEE, 9</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MADAME  NIZET  PATRICIA</name>
+    <street>RUE MONTSEIGNEUR , 16</street>
+    <box />
+    <city>5500 NEFFE</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CER  GROUPE</name>
+    <street>A L'ATTENTION DE MME MATTON</street>
+    <box>RUE DU CARMEL 1</box>
+    <city />
+    <country>6900 MARLOIE</country>
+    <tva>BE0420654158</tva>
+  </client>
+  <client>
+    <name>MONSIEUR  JEAN-CLAUDE  DELVIGNE</name>
+    <street>RUE HEUVENEERS</street>
+    <box />
+    <city>6280 GERPINNES</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CLUB  CANIN  D'ONHAYE</name>
+    <street>RUE ABBE DUJARDIN 4</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>S.C.  SAMABRA</name>
+    <street>RUE GRANDE,  83</street>
+    <box />
+    <city>5537 ANHEE</city>
+    <country>BELGIQUE</country>
+    <tva>431368502</tva>
+  </client>
+  <client>
+    <name>ASBL  L'ARCHE  BLEUE</name>
+    <street>RUE DES BRASSEURS , 17</street>
+    <box />
+    <city>5000 NAMUR</city>
+    <country>BELGIQUE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MUNTEN  DIDIER</name>
+    <street>RUE SAINT GHISLAIN, 8</street>
+    <box />
+    <city>5501 LISOGNE</city>
+    <country />
+    <tva>722237947</tva>
+  </client>
+  <client>
+    <name>IMMO  CNF</name>
+    <street>CHAUSSEE DE DINANT , 23</street>
+    <box />
+    <city>5537 ANHEE</city>
+    <country />
+    <tva>0893216976</tva>
+  </client>
+  <client>
+    <name>MEDICORPS  S.A.</name>
+    <street>RUE DAOUST , 17</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0455739937</tva>
+  </client>
+  <client>
+    <name>DOCTEUR  MEURANT  SPRL</name>
+    <street>AVENUE SCHLOGEL, 91</street>
+    <box />
+    <city>5590 CINEY</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  BRASSEUR  BERNARD</name>
+    <street>ROUTE DE BEAURAING, 47</street>
+    <box />
+    <city>5500 FALMAGNE</city>
+    <country />
+    <tva>460074661</tva>
+  </client>
+  <client>
+    <name>COLOR-IN</name>
+    <street>ZONING DE LA VOIE CUIVREE, 23</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country />
+    <tva>0806715247</tva>
+  </client>
+  <client>
+    <name>LA  TABLE  D'ANTONIO</name>
+    <street>RUE A.DAOUST, 49</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0867636987</tva>
+  </client>
+  <client>
+    <name>MADAME  TASSIAUX  MAGGUY</name>
+    <street>BONSECOURS, 75</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MAISON  DOZOT  SPRLU</name>
+    <street>RUE GRANDE , 69</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>466363736</tva>
+  </client>
+  <client>
+    <name>DERMIENCE  FRANCOISE  ET  FAMILLE</name>
+    <street>RUE DE LA BRUYERE 8</street>
+    <box />
+    <city>5500 FALMAGNE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MADAME  DEWAEL</name>
+    <street>RUE DU BATY DES MONTS 217A</street>
+    <box />
+    <city>5300 VEZIN</city>
+    <country />
+    <tva>725 886 542</tva>
+  </client>
+  <client>
+    <name>DIVINE</name>
+    <street>RUE GRANDE , 128</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0722262196</tva>
+  </client>
+  <client>
+    <name>GRANDJEAN  PHILIPPE</name>
+    <street>AVENUE DES COMBATTANTS, 14</street>
+    <box>BOITE 2</box>
+    <city>5500 DINANT</city>
+    <country />
+    <tva>NON ASSUJETTI</tva>
+  </client>
+  <client>
+    <name>LA  TAVERNE  WIERTZ</name>
+    <street>PLACE ALBERT , 1</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>616720060</tva>
+  </client>
+  <client>
+    <name>HYAT  BENOIT</name>
+    <street>RUE DAOUST, 41</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0832656611</tva>
+  </client>
+  <client>
+    <name>COIN  A  TAPAS</name>
+    <street>PLACE ST NICOLAS, 6</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0848443459</tva>
+  </client>
+  <client>
+    <name>MADAME  HUBERT  FRANCOISE</name>
+    <street>AVENUE DE MENDIETTA 34</street>
+    <box />
+    <city>5500 ANSEREMME</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>DLIVRE  SPRL</name>
+    <street>RUE GRANDE , 67A</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>882872456</tva>
+  </client>
+  <client>
+    <name>MICHAUX  ANDRE</name>
+    <street>CHEMIN DES POMMIERS, 34</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>722393345</tva>
+  </client>
+  <client>
+    <name>VITROMEUSE  SPRL</name>
+    <street>ZONNING DE LA VOIE CUIVREE, 22</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country />
+    <tva>0402579989</tva>
+  </client>
+  <client>
+    <name>GROUPE  MONTULET  S.A.</name>
+    <street>RUE ST JACQUES, 288</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0899475456</tva>
+  </client>
+  <client>
+    <name>ALGENCO  SPRL</name>
+    <street>PLACE COLLIGNON , 12</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country />
+    <tva>423058771</tva>
+  </client>
+  <client>
+    <name>L'AMIC  SECTI  FONDA  DE  L'ATHENEE</name>
+    <street>ROYAL DE DINANT, RUE ST PIERRE</street>
+    <box>90</box>
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>WILLAERT  VEERLE</name>
+    <street>ROUTE DE GIVET, 28</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>LE  ROTARY  DE  DINANT</name>
+    <street>PLACE REINE ASTRID , 6</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  JEUNES  CDH</name>
+    <street>RUE DES 2 EGLISES , 41</street>
+    <box />
+    <city>1000 BRUXELLES</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>S.A.LAMBERT-F.D.</name>
+    <street>CHEMIN DE LIGNE , 19</street>
+    <box />
+    <city>7972 ELLIGNIES-STE-ANNE</city>
+    <country />
+    <tva>BE0473161743</tva>
+  </client>
+  <client>
+    <name>CAPELLE  SEBASTIEN</name>
+    <street>RUE ALBERT MARTIN 4</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  DOCTEUR  DERMIENCE</name>
+    <street>RUE DE LA BRUYERE, 8</street>
+    <box />
+    <city>5500 FALMAGNE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>POCHET  OLIVIER</name>
+    <street>RUE DU REFUGE, 34B</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0549772145</tva>
+  </client>
+  <client>
+    <name>MADAME  FONDAIRE  SONJA</name>
+    <street>AVENUE DE VOSSEGAT 10</street>
+    <box>24</box>
+    <city>1180 BRUXELLES</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  LA  MAISON  DE  LA  LAiCITE</name>
+    <street>RUE COURTE ST ROCH, 5</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  LES  AMIS  DE  DREHANCE</name>
+    <street>RUE COURTE ST ROCH , 5</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>ASBL  LES  TERRITOIRES  DE  LA  MEMOIRE</name>
+    <street>RUE COURTE ST ROCH, 5</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>LA  VITA  E  BELLA</name>
+    <street>RUE GRANDE, 5</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0538874887</tva>
+  </client>
+  <client>
+    <name>EUROPROMOTION</name>
+    <street>KORALENHOEVE 6</street>
+    <box />
+    <city>2160 WOMMELGEN</city>
+    <country />
+    <tva>436371326</tva>
+  </client>
+  <client>
+    <name>MR  VINCENT  LIBERT</name>
+    <street>RUE FOURNEAU  , 5A</street>
+    <box />
+    <city>5377 SINSIN</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>R  C  S  NATOYE</name>
+    <street>RUE DE L'AVENIR 1</street>
+    <box />
+    <city>5360 NATOYE</city>
+    <country />
+    <tva>0431129069</tva>
+  </client>
+  <client>
+    <name>GALANTE  FLORENCE</name>
+    <street>RUE DES CHEVREUILS , 4</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>BODAUX  PIERRE</name>
+    <street>RUE DES FORGES, 28</street>
+    <box />
+    <city>5500 ANSEREMME</city>
+    <country />
+    <tva>0722209243</tva>
+  </client>
+  <client>
+    <name>VERONIC  SCS</name>
+    <street>RUE DU BEAU SITE, 14</street>
+    <box />
+    <city>5100 JAMBES</city>
+    <country />
+    <tva>0567963902</tva>
+  </client>
+  <client>
+    <name>SPRL  ERIC  PAQUET</name>
+    <street>TAVIET, 7</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country />
+    <tva>862172721</tva>
+  </client>
+  <client>
+    <name>PAPETERIE  MOSANE</name>
+    <street>RUE SAINT JACQUES, 288</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0899475456</tva>
+  </client>
+  <client>
+    <name>MADAME  ANNE  SIMON</name>
+    <street>NIEUWELAAN, 61</street>
+    <box />
+    <city>1853 STROMBEEK-BEVER</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MR  HAUBURSIN  RSC  NEFFE</name>
+    <street>ROUTE DE PHILIPPEVILLE, 10</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>430174016</tva>
+  </client>
+  <client>
+    <name>MIONSIEUR  MICHEL  WAUTHIER</name>
+    <street>RUE PIERRE ET MARIE CURIE 28</street>
+    <box />
+    <city>6032 MONT S/MARCHIENNE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CULOT  MARIE-REINE</name>
+    <street>RUE DU RANIME, 9</street>
+    <box />
+    <city>5020 MALONNE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>LE  PERSONNEL  MATCH  DINANT</name>
+    <street>PLACE ALBERT 1ER , 1</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CAFES  ST  MEDARD</name>
+    <street>ZONING DE LA VOIX CUIVREE, 7</street>
+    <box />
+    <city>5503 SORINNES</city>
+    <country />
+    <tva>0451994066</tva>
+  </client>
+  <client>
+    <name>DINANT  BUINESS  CENTER</name>
+    <street>RUE ST JACQUES, 300</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0807658226</tva>
+  </client>
+  <client>
+    <name>S.A.  CONDROGEST</name>
+    <street>RUE DU COMMERCE, 124</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>450387529</tva>
+  </client>
+  <client>
+    <name>DELHAIZE  DE  DINANT</name>
+    <street>PLACE CARDINAL MERCIER, 12</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0402206045</tva>
+  </client>
+  <client>
+    <name>SPRL  HOME  CATERING  SERVICES</name>
+    <street>SERVICE COMPTABILITE, RUE GAWDAY</street>
+    <box>93</box>
+    <city>5300 MAIZERET</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  DINOPTIC</name>
+    <street>RUE BOIS DES FIEFS, 11A</street>
+    <box />
+    <city>5590 CINEY</city>
+    <country />
+    <tva>467167539</tva>
+  </client>
+  <client>
+    <name>SPRL  TAPIS  CLEAN</name>
+    <street>RUE FETIS , 9</street>
+    <box />
+    <city>5500 BOUVIGNES</city>
+    <country />
+    <tva>882563012</tva>
+  </client>
+  <client>
+    <name>CAUSSIN  PHILIPPE</name>
+    <street>RUE GRANDE , 24</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0630658267</tva>
+  </client>
+  <client>
+    <name>MADAME  ROBIN  JOELLE</name>
+    <street>RUE DES MESANGES , 9</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>CFPME</name>
+    <street>FETIS, 61</street>
+    <box />
+    <city>5500 BOUVIGNES</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>INFISOM</name>
+    <street>RUE DE LA BRUYERE , 2</street>
+    <box />
+    <city>5523 SOMMIERE</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>SPRL  LA  FLEUR  AUX  DENTS</name>
+    <street>RUE DE FURFOOZ, 17</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>MONSIEUR  MEYFROIDT  PHILIPPE</name>
+    <street>RUE SAINT JACQUES, 300</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>722193902</tva>
+  </client>
+  <client>
+    <name>CENTRE  IFAPME  DE  DINANT  ASBL</name>
+    <street>RUE FETIS , 61</street>
+    <box />
+    <city>5500 BOUVIGNES DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>FALLAY  JEAN-LUC</name>
+    <street>RUE HINRAU, 15</street>
+    <box />
+    <city>5520 ONHAYE</city>
+    <country />
+    <tva>0690385721</tva>
+  </client>
+  <client>
+    <name>PIZZERIA  TAORMINA</name>
+    <street>RUE SAX , 24</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>0559871429</tva>
+  </client>
+  <client>
+    <name>CENTRE  MARTINE</name>
+    <street>AVENUE DOYEN WOINE , 4</street>
+    <box />
+    <city>5530 YVOIR</city>
+    <country />
+    <tva>690063443</tva>
+  </client>
+  <client>
+    <name>LE  RIVAGE  JOIE</name>
+    <street>RUE DES RIVAGES , 93</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>L'AMICALE  ECOLE  LE  CAILLOU</name>
+    <street>AVENUE GENERAL HODGES, 7A</street>
+    <box />
+    <city>5500 ANSEREMME DINANT</city>
+    <country />
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>LOUP  MEURICE</name>
+    <street>LEOPOLD, 11</street>
+    <box />
+    <city>5500 DINANT</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+</clients>
+

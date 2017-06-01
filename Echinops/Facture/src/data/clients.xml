@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+  <client>
+    <name>Meurice Loupi</name>
+    <street>Rué Léopold, 11</street>
+    <box>123</box>
+    <city>5500 Dinant</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+  <client>
+    <name>Meurice Lé</name>
+    <street>Rue Léopold, 11</street>
+    <box>12</box>
+    <city>5500 Dinanr</city>
+    <country>BE</country>
+    <tva>non assujetti</tva>
+  </client>
+</clients>
+
