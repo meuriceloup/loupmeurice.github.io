@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <title>CodePen - Scrabble Tiles</title>
+  <head>
+	<link rel="stylesheet" href="tiles.css">
+	<link rel="stylesheet" href="draggable.css">
+	<link rel="stylesheet" href="board.css">
+  </head>
+
+
+<body translate="no">
+
+  <div id="js-board"></div>
+  <button onclick="controller.play();">PLAY</button>
+  <button onclick="resetRackAndBoard()">RESET</button>
+  <div class="rack">
+	<div style="display:inline-block;"><div><a href="https://www.twinkl.com/illustration/kalma-muddle-tayal-rack-scrabble-ks1"><img src="rack.png"></a></div></div>
+	<div class="draggable" position="0">
+		<div class="playable-tile" data-letter="s" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="1">
+		<div class="playable-tile" data-letter="c" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="2">
+		<div class="playable-tile" data-letter="r" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="3">
+		<div class="playable-tile" data-letter="a" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="4">
+		<div class="playable-tile" data-letter="b" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="5">
+		<div class="playable-tile" data-letter="b" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+	<div class="draggable" position="6">
+		<div class="playable-tile" data-letter="l" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+	</div>
+  </div>
+  <!--<div class="tile draggable" data-letter="s" style="background-position: 449px 393px; transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
+  <div class="tile draggable" data-letter="c" style="background-position: 248px 149px; transform: rotate(0.169147deg); background-color: rgb(212, 167, 92);"></div>
+  <div class="tile draggable" data-letter="r" style="background-position: 126px 453px; transform: rotate(-0.996571deg); background-color: rgb(227, 182, 108);"></div>
+  <div class="tile draggable" data-letter="a" style="background-position: 210px 541px; transform: rotate(0.151597deg); background-color: rgb(207, 161, 87);"></div>
+  <div class="tile draggable" data-letter="b" style="background-position: 580px 241px; transform: rotate(-1.87867deg); background-color: rgb(234, 191, 119);"></div>
+  <div class="tile draggable" data-letter="b" style="background-position: 550px 210px; transform: rotate(-1.05398deg); background-color: rgb(222, 177, 102);"></div>
+  <div class="tile draggable" data-letter="l" style="background-position: 140px 128px; transform: rotate(1.45399deg); background-color: rgb(212, 167, 92);"></div>
+  <div class="tile draggable" data-letter="e" style="background-position: 125px 242px; transform: rotate(-2.30762deg); background-color: rgb(221, 176, 101);"></div>
+  -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="stopExecutionOnTimeout.js"></script>
+<script src="board.js"></script>
+<script src="tinycolor.js"></script>
+<script type="text/javascript" src="tile-position.js"></script>	
+<script type="text/javascript" src="draggable.js"></script>
+<script type="text/javascript" src="dictionary.js"></script>
+  <script type="text/javascript" src="model.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+  
+<script>
+	controller = new Controller();
+</script>
+
+
+
+ 
+</body></html>
