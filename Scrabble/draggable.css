@@ -2,3 +2,7 @@
 	position: absolute;
 	z-index: 9999;
 }
+
+.alwaysOnTop {
+	z-index: 99999;
+}

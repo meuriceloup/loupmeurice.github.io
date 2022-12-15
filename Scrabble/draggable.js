@@ -54,6 +54,7 @@ function dragElement(elmnt) {
     e = e || window.event;
     e.preventDefault();
     // get the mouse cursor position at startup:
+	elmnt.classList.add("alwaysOnTop");
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
@@ -70,12 +71,81 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	let top = elmnt.offsetTop - pos2;
+	let left = elmnt.offsetLeft - pos1;
+
+    elmnt.style.top = top + "px";
+    elmnt.style.left = left + "px";
+
+	checkIfSwitchTiles();
+  }
+
+  function checkIfSwitchTiles() {
+	let position = parseInt(elmnt.getAttribute("position"));
+	let mustSwitch = false;
+	let neighbour = null;
+	let newPosition = null;
+	if(position > 0) {
+		//check left tiles
+		for(let i = 1; i <= position && mustSwitch == false; i++) {
+			neighbour = elmnt.parentNode.querySelector(".draggable[position='" + (position - i) + "']");
+			let center1 = getCenter(elmnt);
+
+			let rect = neighbour.getBoundingClientRect();
+			if(isInside(center1, rect)) {
+				mustSwitch = true;
+				newPosition = position - i;
+			}
+		}
+
+	}
+
+	if(mustSwitch == false && position < controller.model.rack.length - 1) {
+		//check right
+		for(let i = 1; position + i < controller.model.rack.length && mustSwitch == false; i++) {
+
+			neighbour = elmnt.parentNode.querySelector(".draggable[position='" + (position + i) + "']");
+			let center1 = getCenter(elmnt);
+			let rect = neighbour.getBoundingClientRect();
+			if(isInside(center1, rect)) {
+				mustSwitch = true;
+				newPosition = position + 1;
+			}
+		}
+
+	}
+
+	if(mustSwitch == true) {
+		console.log("must switch:", position, newPosition);
+
+		if(newPosition < position) {
+			//left switch
+			for(let i = position - 1; i >= newPosition; i--) {
+				let el = elmnt.parentNode.querySelector(".draggable[position='" + i + "']");
+				el.setAttribute("position", "" + (i + 1));
+				resetTilePosition(el);
+			}
+		} else {
+			//right switch
+			for(let i = newPosition; i > position; i--) {
+				let el = elmnt.parentNode.querySelector(".draggable[position='" + i + "']");
+				console.log("right:", el, i-1);
+				el.setAttribute("position", "" + (i - 1));
+				resetTilePosition(el);
+			}
+		}
+		elmnt.setAttribute("position", "" + newPosition);
+		//neighbour.setAttribute("position", "" + position);
+		//elmnt.setAttribute("position", "" + newPosition);
+		//resetTilePosition(neighbour);
+	}
+
+
   }
 
   function closeDragElement(e) {
     // stop moving when mouse button is released:
+	elmnt.classList.remove("alwaysOnTop");
 	let parent = elmnt.closest(".draggable")
 	if(isInBoard(elmnt) == false) {
 		resetTilePosition(parent);

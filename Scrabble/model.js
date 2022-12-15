@@ -26,10 +26,37 @@ class Model {
 			this.play.push(arr2);
 	  	}
 
-	  	this.board[6][7] = 'b';
-	  	this.board[8][7] = 'c';
+	  	this.board[6][7] = 'a';
+	  	this.board[8][7] = 'e';
+
+	  	for(const arr of this.randomTiles(45)) {
+	  		this.board[arr[0]][arr[1]] = this.randomLetter()
+		}
+
 
 	}
+
+	randomTiles(number) {
+		let res = [];
+		let array = [];
+		for(let i = 0; i < 15; i++)
+			for(let j = 0; j < 15; j++)
+				array.push([i, j]);
+		for(let i = 0; i < number; i++) {
+			let index = Math.floor(Math.random() * array.length);
+			res.push(array[index]);
+			array.splice(index, 1);
+		}
+
+		return res;
+	}
+
+	randomLetter() {
+		let characters       = 'abcdefghijklmnopqrstuvwxyz';
+		let charactersLength = characters.length;
+		return characters.charAt(Math.floor(Math.random() * charactersLength));
+	}
+
 
 	getPlayedLetters() {
 		let res = [];

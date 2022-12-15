@@ -1,8 +1,21 @@
 
 class Controller {
+
+    infoMessageDiv = document.getElementById("info");
+
     constructor() {
         this.model = new Model();
         this.drawTiles();
+    }
+
+    displayInfoMessage(msg) {
+        this.infoMessageDiv.classList.remove("transparent");
+        this.infoMessageDiv.innerText = msg;
+    }
+
+    removeInfoMessage() {
+        this.infoMessageDiv.classList.add("transparent");
+        //this.infoMessageDiv.innerText = "";
     }
 
     addTileToBoard(i, j, l) {
@@ -21,11 +34,12 @@ class Controller {
         let error = this.isValid();
         if(!error) {
             let cnt = this.getPoints();
-            console.log("count: " + cnt);
+            return cnt;
         }
 
-        if(error)
-            console.log(error);
+        //if(error)
+        //    console.log(error);
+        return -1;
     }
 
     isValid() {
@@ -215,7 +229,7 @@ class Controller {
                 if(this.model.board[playedRows[0]][i] != null) {
                     word += this.model.board[playedRows[0]][i];
                     letters.push(
-                        {'letter': this.model.play[playedRows[0]][i],
+                        {'letter': this.model.board[playedRows[0]][i],
                             'coordinates' : [playedRows[0],i],
                             'rack' : 'false'}
                             );
@@ -273,7 +287,7 @@ class Controller {
                         break;
                 }
 
-                for(let j = playedRows[0] + 1; i < this.model.row_length; i++) {
+                for(let j = playedRows[0] + 1; j < this.model.row_length; j++) {
                     if(this.model.board[j][playedColumns[i]] != null) {
                         word += this.model.board[j][playedColumns[i]];
                         letters.push(
@@ -308,7 +322,7 @@ class Controller {
                 if (this.model.board[i][playedColumns[0]] != null) {
                     word += this.model.board[i][playedColumns[0]]
                     letters.push(
-                        {'letter': this.model.play[i][playedColumns[0]],
+                        {'letter': this.model.board[i][playedColumns[0]],
                             'coordinates' : [i,playedColumns[0]],
                             'rack' : 'false'}
                     );
@@ -365,7 +379,7 @@ class Controller {
                         break;
                 }
 
-                for(let j = playedColumns[0] + 1; i < this.model.row_length; i++) {
+                for(let j = playedColumns[0] + 1; j < this.model.row_length; j++) {
                     if(this.model.board[playedRows[i]][j] != null) {
                         word += this.model.board[playedRows[i]][j];
                         letters.push(
@@ -412,7 +426,7 @@ class Controller {
     }
 
     drawTiles() {
-        for(let i = this.model.rack.length; i <= this.model.nb_of_rack_riles; i++) {
+        for(let i = this.model.rack.length; i < this.model.nb_of_rack_riles; i++) {
             let index = Math.floor(Math.random() * this.model.tiles.length);
             this.model.rack.push(this.model.tiles[index]);
             this.model.tiles.splice(index, 1);
