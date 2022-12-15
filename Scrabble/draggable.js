@@ -31,9 +31,10 @@ function resetRackAndBoard() {
 	let occupiedTiles = document.querySelectorAll("#js-board .tile");
 	for(const tile of occupiedTiles) {
 		let free = tile.getAttribute("free");
-		if(free != null && free != 'true') {
+		if(free != null && free != 'false') {
 			tile.querySelector(".draggable").classList.add("invisible");
 			tile.removeAttribute("free");
+			tile.querySelector(".playable-tile").classList.remove("temporary");
 		}
 	}
 
@@ -116,7 +117,6 @@ function dragElement(elmnt) {
 	}
 
 	if(mustSwitch == true) {
-		console.log("must switch:", position, newPosition);
 
 		if(newPosition < position) {
 			//left switch
@@ -129,7 +129,6 @@ function dragElement(elmnt) {
 			//right switch
 			for(let i = newPosition; i > position; i--) {
 				let el = elmnt.parentNode.querySelector(".draggable[position='" + i + "']");
-				console.log("right:", el, i-1);
 				el.setAttribute("position", "" + (i - 1));
 				resetTilePosition(el);
 			}
@@ -169,7 +168,9 @@ function dragElement(elmnt) {
 	  let boardTile = document.querySelector('[data-col="' + coordinates[0] + '"][data-row="' + coordinates[1] + '"]');
 	  let tile = boardTile.querySelector(".mini");
 	  tile.classList.remove("invisible");
-	  tile.querySelector(".playable-tile").setAttribute("data-letter", letter.getAttribute("data-letter"));
+	  let playableTile = tile.querySelector(".playable-tile");
+	  playableTile.setAttribute("data-letter", letter.getAttribute("data-letter"));
+	  playableTile.classList.add("temporary");
 	  boardTile.setAttribute("free", letter.parentNode.getAttribute("position"));
 	  let value = letter.getAttribute("data-letter");
 	  resetTilePosition(letter.parentNode);
@@ -257,6 +258,7 @@ function dragMiniElement(elmnt) {
 	  rackLetter.parentNode.style.left = (rackLetter.offsetLeft + x + (RACK_SHIFT*rackLetterNumber + RACK_LEFT_START)) + "px";
 	  elmnt.classList.add("invisible");
 	  parent.setAttribute("free", "true");
+	  parent.querySelector(".playable-tile").classList.remove("temporary");
 	  rackLetter.parentNode.dispatchEvent(ev);
 	  controller.removeTileFromBoard(parent.getAttribute("data-row"), parent.getAttribute("data-col"))
   }

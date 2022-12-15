@@ -452,6 +452,7 @@ class Controller {
                     tile.setAttribute("data-letter", this.model.board[i][j])
                     tile.removeAttribute("position");
                     tile.parentNode.classList.remove("invisible");
+                    tile.parentNode.parentNode.setAttribute("free", "false");
                 }
             }
     }
