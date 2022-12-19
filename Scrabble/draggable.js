@@ -1,9 +1,19 @@
-const RACK_SHIFT = 80;
+
+const RACK_SHIFT = 40;
 const RACK_LEFT_START = 38;
 dragElements(document.querySelectorAll(".rack .draggable"));
 positionElements(document.querySelectorAll(".rack .draggable"));
 
 dragMiniElements(document.querySelectorAll(".board .draggable"));
+
+function getRackShift() {
+	let rackWidth = document.getElementsByClassName("rack")[0].clientWidth - 20;
+	let tileWidth = document.querySelector(".rack .draggable").clientWidth;
+	let nbOfTiles = controller.model.nb_of_rack_riles;
+	let shift = (rackWidth - (tileWidth * nbOfTiles))/(nbOfTiles + 1);
+
+	return shift;
+}
 
 function dragElements(elements) {
 	for(let i = 0; i < elements.length; i++)
@@ -20,9 +30,15 @@ function resetTilePosition(el) {
 	let position = el.getAttribute("position");
 	if(position) {
 		el.style.top = "0px";
-		let leftPx = RACK_LEFT_START + (position * RACK_SHIFT);
+		//let leftPx = RACK_LEFT_START + (position * RACK_SHIFT);
+		let tileWidth = document.querySelector(".rack .draggable").clientWidth;
+		let leftPx = ((parseInt(position) + 1) * getRackShift()) + (tileWidth * parseInt(position)) + 10;
 		el.style.left = leftPx + "px";
 	}
+}
+
+function isInvisible(elmnt) {
+	return elmnt.querySelector(".playable-tile.transparent") != null;
 }
 
 function resetRackAndBoard() {
@@ -40,7 +56,7 @@ function resetRackAndBoard() {
 
 	// 2. get all the tiles back to the rack
 	for (const tile of document.querySelectorAll(".rack .playable-tile")) {
-		tile.classList.remove("invisible");
+		tile.classList.remove("transparent");
 	}
 
 	controller.removeAllTilesFromBoard();
@@ -54,6 +70,9 @@ function dragElement(elmnt) {
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
+    if(isInvisible(elmnt))
+    	return;
+
     // get the mouse cursor position at startup:
 	elmnt.classList.add("alwaysOnTop");
     pos3 = e.clientX;
@@ -64,6 +83,7 @@ function dragElement(elmnt) {
   }
 
   function elementDrag(e) {
+  	console.log("yup");
     e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position:
@@ -77,6 +97,7 @@ function dragElement(elmnt) {
 
     elmnt.style.top = top + "px";
     elmnt.style.left = left + "px";
+
 
 	checkIfSwitchTiles();
   }
@@ -122,6 +143,10 @@ function dragElement(elmnt) {
 			//left switch
 			for(let i = position - 1; i >= newPosition; i--) {
 				let el = elmnt.parentNode.querySelector(".draggable[position='" + i + "']");
+				let temporary = document.querySelector(".board .tile[free='" + i + "']");
+				if(temporary != null) {
+					temporary.setAttribute("free", "" + (i + 1));
+				}
 				el.setAttribute("position", "" + (i + 1));
 				resetTilePosition(el);
 			}
@@ -129,6 +154,10 @@ function dragElement(elmnt) {
 			//right switch
 			for(let i = newPosition; i > position; i--) {
 				let el = elmnt.parentNode.querySelector(".draggable[position='" + i + "']");
+				let temporary = document.querySelector(".board .tile[free='" + i + "']");
+				if(temporary != null) {
+					temporary.setAttribute("free", "" + (i - 1));
+				}
 				el.setAttribute("position", "" + (i - 1));
 				resetTilePosition(el);
 			}
@@ -174,7 +203,7 @@ function dragElement(elmnt) {
 	  boardTile.setAttribute("free", letter.parentNode.getAttribute("position"));
 	  let value = letter.getAttribute("data-letter");
 	  resetTilePosition(letter.parentNode);
-	  letter.classList.add("invisible");
+	  letter.classList.add("transparent");
 	  controller.addTileToBoard(coordinates[1], coordinates[0], value)
   }
   
@@ -245,7 +274,7 @@ function dragMiniElement(elmnt) {
 	  if(!rackLetter)
 	  	return;
 
-	  rackLetter.classList.remove("invisible");
+	  rackLetter.classList.remove("transparent");
 	  let center = getCenter(elmnt);
 	  let ev = new CustomEvent('mousedown', {});
 	  ev["clientX"] = center[0];
@@ -255,7 +284,13 @@ function dragMiniElement(elmnt) {
 	  let x = center[0] - center2[0];
 	  let y = center[1] - center2[1];
 	  rackLetter.parentNode.style.top = (rackLetter.offsetTop + y) + "px";
-	  rackLetter.parentNode.style.left = (rackLetter.offsetLeft + x + (RACK_SHIFT*rackLetterNumber + RACK_LEFT_START)) + "px";
+
+	  let tileWidth = document.querySelector(".rack .draggable").clientWidth;
+	  let leftPx = ((parseInt(rackLetterNumber) + 1) * getRackShift()) + (tileWidth * parseInt(rackLetterNumber)) + 10;
+
+
+
+	  rackLetter.parentNode.style.left = (rackLetter.offsetLeft + x + leftPx) + "px";
 	  elmnt.classList.add("invisible");
 	  parent.setAttribute("free", "true");
 	  parent.querySelector(".playable-tile").classList.remove("temporary");

@@ -3,8 +3,9 @@
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
     font-size: 16px;
+    height: 10vh;
 }
 
 .transparent {
@@ -57,12 +58,13 @@ button {
      z-index: 3;
      background: beige;
      color: #af804f;
-     font-size: 14px;
+     font-size: min(2vh, 2vw);
      border-color: #af804f;
      border-style: solid;
      border-width: 4px;
      border-radius: 22px;
-     padding: 15px 40px;
+     padding: min(1vh, 1vw) min(5vh, 5vw);
+     top: min(2vh,2vw);
      text-transform: uppercase;
      transition: all 0.2s linear;
      box-shadow: 3px 3px rgba(175, 128, 79, 0.5);;
@@ -73,5 +75,7 @@ button {
     border-color: beige;
     transition: all 0.2s linear;
 }
+
+
 
 

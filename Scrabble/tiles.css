@@ -26,22 +26,31 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
-  width: 90vw;
+  height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
+  position: absolute !important;
+  top: 0;
+  left: 0;
 }
 .rack {
   display: flex;
   justify-content: center;
-  top: 30px;
+  top: min(2vh,2vw);
+  /*height: min(20vh,20vw);*/
 }
+
+.rack img {
+  width: min(60vh, 60vw);
+}
+
 .rack .playable-tile {
   margin: 0.5mm;
   background-color: #f5cf90;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/49914/veneer-birch-texture-fs8.png');
   position: relative;
-  width: 19mm;
-  height: 19mm;
+  width: min(7vh, 7vw);
+  height: min(7vh, 7vw);
   box-sizing: border-box;
   box-shadow: 0 1.125mm 0.75mm -0.5mm rgba(0, 0, 0, 0.4);
   border-style: solid;
@@ -59,7 +68,7 @@ body {
   content: attr(data-letter);
   text-transform: uppercase;
   font-family: Oswald, sans-serif;
-  font-size: 13.3mm;
+  font-size: min(5vh, 5vw);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,7 +79,7 @@ body {
 .rack .playable-tile[data-letter]::after {
   color: rgba(0, 0, 0, 0.7);
   font-family: sans-serif;
-  font-size: 4.275mm;
+  font-size: min(2vh, 2vw);
   position: absolute;
   right: 12.5%;
   bottom: 12.5%;
@@ -133,8 +142,8 @@ body {
   background-color: #f5cf90;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/49914/veneer-birch-texture-fs8.png');
   position: relative;
-  width: 41px;
-  height: 41px;
+  width: min(5vh,5vw);
+  height: min(5vh,5vw);
   box-sizing: border-box;
   box-shadow: 0 0.5625mm 0.375mm -0.25mm rgba(0, 0, 0, 0.4);
   border-style: solid;
@@ -153,7 +162,7 @@ body {
   content: attr(data-letter);
   text-transform: uppercase;
   font-family: Oswald, sans-serif;
-  font-size: 6.65mm;
+  font-size: min(3vh,3vw);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -164,10 +173,10 @@ body {
 .mini .playable-tile[data-letter]::after {
   color: rgba(0, 0, 0, 0.7);
   font-family: sans-serif;
-  font-size: 2.1375mm;
+  font-size: 90%;
   position: absolute;
-  right: 12.5%;
-  bottom: 12.5%;
+  right: 14.5%;
+  bottom: 14.5%;
   transform: translate(50%, 50%);
 }
 .mini .playable-tile[data-letter='e']::after,

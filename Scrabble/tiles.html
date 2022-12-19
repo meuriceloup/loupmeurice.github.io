@@ -16,10 +16,9 @@
 
 
 <body translate="no">
-  <div class="alert alert-info transparent" id="info" role="alert">msg</div>
   <div id="js-board"></div>
   <div class="rack">
-	<div style="display:inline-block;"><div><a><img src="img/rack.png"></a></div></div>
+	<div style="display:inline-block;"><div><a><img src="img/rack.svg"></a></div></div>
 	<div class="draggable" position="0">
 		<div class="playable-tile" data-letter="s" style="transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
 	</div>
@@ -44,7 +43,7 @@
   </div>
   <div id="buttons">
 	  <button class="outline" onclick="console.log('points:', controller.play());">Jouer</button>
-	  <button class="outline" onclick="console.log(master.searchForBestPlay())">MASTER</button>
+	  <!-- <button class="outline" onclick="console.log(master.searchForBestPlay())">MASTER</button> -->
 	  <button class="outline" onclick="resetRackAndBoard()">
 		  <i class="fa fa-arrow-down"></i>
 		  <i class="fa fa-arrow-down"></i>
@@ -66,19 +65,19 @@
 <script src="board.js"></script>
 <script src="tinycolor.js"></script>
 <script type="text/javascript" src="tile-position.js"></script>	
-<script type="text/javascript" src="draggable.js"></script>
+
 <script type="text/javascript" src="dictionary.js"></script>
-  <script type="text/javascript" src="model.js"></script>
+<script type="text/javascript" src="model.js"></script>
 <script type="text/javascript" src="controller.js"></script>
-  <script type="text/javascript" src="master.js"></script>
+<script type="text/javascript" src="master.js"></script>
   
 <script>
 	controller = new Controller();
 	master = new Master(controller.model, controller);
 
 </script>
+  <script type="text/javascript" src="draggable.js"></script>
 
 
 
- 
 </body></html>

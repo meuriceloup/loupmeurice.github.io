@@ -3,6 +3,19 @@
 	z-index: 9999;
 }
 
+.rack .draggable {
+	/*top: -15px !important;*/
+}
+
+.playable-tile .transparent {
+	background-color: transparent !important;
+}
+
+.mini.draggable {
+
+	position: relative !important;
+}
+
 .temporary {
 	background-color: yellow !important;
 	background-image: none !important;
