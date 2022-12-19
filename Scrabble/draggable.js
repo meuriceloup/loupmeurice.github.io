@@ -317,3 +317,5 @@ function dragMiniElement(elmnt) {
 
   
 }
+
+

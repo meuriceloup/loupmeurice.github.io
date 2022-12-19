@@ -67,13 +67,46 @@ button {
      top: min(2vh,2vw);
      text-transform: uppercase;
      transition: all 0.2s linear;
-     box-shadow: 3px 3px rgba(175, 128, 79, 0.5);;
+     box-shadow: 3px 3px rgba(175, 128, 79, 0.5);
 }
 .outline:hover {
     color: beige;
     background: #af804f;
     border-color: beige;
     transition: all 0.2s linear;
+}
+
+#score {
+    border: solid maroon 5px;
+    background-color: beige;
+    box-shadow: 5px 3px 3px maroon;
+}
+
+.leftScore {
+  left: 2vw;
+  top: 20%;
+  width: calc(45vw - min(37.5vh, 37.5vw));
+  height: 50%;
+  position: fixed;
+
+}
+
+.leftScore span {
+    line-height:20px;
+}
+
+.bottomScore {
+  width: min(75vh, 75vw);
+  top: min(4vh,4vw);
+}
+
+#score span {
+    font-weight: bold;
+    font-size: min(2vh, 2vw);
+    color: #af804f;
+    margin-left: 10px;
+    font-family: "Lucida Console", "Fira Sans", monospace;
+
 }
 
 

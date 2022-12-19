@@ -49,15 +49,18 @@
 		  <i class="fa fa-arrow-down"></i>
 	  </button>
   </div>
-  <!--<div class="tile draggable" data-letter="s" style="background-position: 449px 393px; transform: rotate(1.6405deg); background-color: rgb(216, 170, 95);"></div>
-  <div class="tile draggable" data-letter="c" style="background-position: 248px 149px; transform: rotate(0.169147deg); background-color: rgb(212, 167, 92);"></div>
-  <div class="tile draggable" data-letter="r" style="background-position: 126px 453px; transform: rotate(-0.996571deg); background-color: rgb(227, 182, 108);"></div>
-  <div class="tile draggable" data-letter="a" style="background-position: 210px 541px; transform: rotate(0.151597deg); background-color: rgb(207, 161, 87);"></div>
-  <div class="tile draggable" data-letter="b" style="background-position: 580px 241px; transform: rotate(-1.87867deg); background-color: rgb(234, 191, 119);"></div>
-  <div class="tile draggable" data-letter="b" style="background-position: 550px 210px; transform: rotate(-1.05398deg); background-color: rgb(222, 177, 102);"></div>
-  <div class="tile draggable" data-letter="l" style="background-position: 140px 128px; transform: rotate(1.45399deg); background-color: rgb(212, 167, 92);"></div>
-  <div class="tile draggable" data-letter="e" style="background-position: 125px 242px; transform: rotate(-2.30762deg); background-color: rgb(221, 176, 101);"></div>
-  -->
+
+  <div id="score">
+	  <br>
+	  <div><span>Votre score:</span><span id="yourscore"></span></div>
+	  <br>
+	  <div><span>Score du Maître:</span><span id="masterscore"></span></div>
+	  <br>
+	  <div><span>Tours joués:</span><span id="playnumber"></span></div>
+	  <br><span>Lettres restantes:</span><span id="letternumber"></span>
+	  <br><br><br>
+	  <span id="message"></span>
+  </div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -76,8 +79,8 @@
 	master = new Master(controller.model, controller);
 
 </script>
-  <script type="text/javascript" src="draggable.js"></script>
-
+<script type="text/javascript" src="draggable.js"></script>
+  <script type="text/javascript" src="score.js"></script>
 
 
 </body></html>
