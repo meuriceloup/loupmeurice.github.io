@@ -99,7 +99,10 @@ class Master {
 
                         }
 
-                        let points = controller.play();
+                        let points = -1;
+                        let error = controller.isValid();
+                        if(!error)
+                            points = controller.getPoints();
                         if(points > max) {
                             max = points;
                             maxPlay = {place: place, word: word.word, points: points};
@@ -140,34 +143,71 @@ class Master {
         let res = [];
         if(max_nb_tiles <= 0)
             return res;
-        for(let i = 0; i < this.model.row_length; i++) {
-            for(let j = 0; j < this.model.column_length; j++) {
-                if(this.model.board[i][j] == null) {
-                    let attached = false;
 
-                    if(i > 0 && this.model.board[i - 1][j] != null)
-                        attached = true; // left neighbour
+        if(this.model.isEmptyBoard()) {
+            let i = this.model.center[0];
+            let j = this.model.center[1];
+            res.push([{row: i, column: j}]);
+            let left = this.getPlaces(max_nb_tiles, "L", [{row: i, column: j}], {
+                row: i,
+                column: j
+            }, {row: i, column: j}, true);
+            let right = this.getPlaces(max_nb_tiles, "R", [{row: i, column: j}], {
+                row: i,
+                column: j
+            }, {row: i, column: j}, true);
+            let top = this.getPlaces(max_nb_tiles, "T", [{row: i, column: j}], {
+                row: i,
+                column: j
+            }, {row: i, column: j}, true);
+            let bottom = this.getPlaces(max_nb_tiles, "B", [{row: i, column: j}], {
+                row: i,
+                column: j
+            }, {row: i, column: j}, true);
 
-                    if(i < this.model.row_length - 1 && this.model.board[i + 1][j] !=  null)
-                        attached = true; // right neighbour
+            res = res.concat(left.concat(right).concat(top).concat(bottom));
+        } else {
+            for (let i = 0; i < this.model.row_length; i++) {
+                for (let j = 0; j < this.model.column_length; j++) {
+                    if (this.model.board[i][j] == null) {
+                        let attached = false;
 
-                    if(j > 0 && this.model.board[i][j - 1] != null)
-                        attached = true; // top neighbour
+                        if (i > 0 && this.model.board[i - 1][j] != null)
+                            attached = true; // left neighbour
 
-                    if(j < this.model.column_length - 1 && this.model.board[i][j + 1] != null)
-                        attached = true; // bottom neighbour
+                        if (i < this.model.row_length - 1 && this.model.board[i + 1][j] != null)
+                            attached = true; // right neighbour
 
-                    if(attached) {
-                        res.push([{row: i, column: j}]);
-                        let left = this.getPlaces(max_nb_tiles,"L", [{row: i, column: j}], {row: i, column: j}, {row: i, column: j}, true);
-                        let right = this.getPlaces(max_nb_tiles,"R", [{row: i, column: j}], {row: i, column: j}, {row: i, column: j}, true);
-                        let top = this.getPlaces(max_nb_tiles,"T", [{row: i, column: j}], {row: i, column: j}, {row: i, column: j}, true);
-                        let bottom = this.getPlaces(max_nb_tiles, "B", [{row: i, column: j}], {row: i, column: j}, {row: i, column: j}, true);
+                        if (j > 0 && this.model.board[i][j - 1] != null)
+                            attached = true; // top neighbour
 
-                        res = res.concat(left.concat(right).concat(top).concat(bottom));
+                        if (j < this.model.column_length - 1 && this.model.board[i][j + 1] != null)
+                            attached = true; // bottom neighbour
+
+                        if (attached) {
+                            res.push([{row: i, column: j}]);
+                            let left = this.getPlaces(max_nb_tiles, "L", [{row: i, column: j}], {
+                                row: i,
+                                column: j
+                            }, {row: i, column: j}, true);
+                            let right = this.getPlaces(max_nb_tiles, "R", [{row: i, column: j}], {
+                                row: i,
+                                column: j
+                            }, {row: i, column: j}, true);
+                            let top = this.getPlaces(max_nb_tiles, "T", [{row: i, column: j}], {
+                                row: i,
+                                column: j
+                            }, {row: i, column: j}, true);
+                            let bottom = this.getPlaces(max_nb_tiles, "B", [{row: i, column: j}], {
+                                row: i,
+                                column: j
+                            }, {row: i, column: j}, true);
+
+                            res = res.concat(left.concat(right).concat(top).concat(bottom));
+                        }
+
+
                     }
-
-
                 }
             }
         }

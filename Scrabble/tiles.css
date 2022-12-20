@@ -85,46 +85,45 @@ body {
   bottom: 12.5%;
   transform: translate(50%, 50%);
 }
-.rack .playable-tile[data-letter='e']::after,
 .rack .playable-tile[data-letter='a']::after,
+.rack .playable-tile[data-letter='e']::after,
 .rack .playable-tile[data-letter='i']::after,
-.rack .playable-tile[data-letter='o']::after,
-.rack .playable-tile[data-letter='n']::after,
-.rack .playable-tile[data-letter='r']::after,
-.rack .playable-tile[data-letter='t']::after,
 .rack .playable-tile[data-letter='l']::after,
+.rack .playable-tile[data-letter='n']::after,
+.rack .playable-tile[data-letter='o']::after,
+.rack .playable-tile[data-letter='r']::after,
 .rack .playable-tile[data-letter='s']::after,
+.rack .playable-tile[data-letter='t']::after,
 .rack .playable-tile[data-letter='u']::after {
   content: "1";
 }
 .rack .playable-tile[data-letter='d']::after,
-.rack .playable-tile[data-letter='g']::after {
+.rack .playable-tile[data-letter='g']::after,
+.rack .playable-tile[data-letter='m']::after {
   content: "2";
 }
 .rack .playable-tile[data-letter='b']::after,
 .rack .playable-tile[data-letter='c']::after,
-.rack .playable-tile[data-letter='m']::after,
 .rack .playable-tile[data-letter='p']::after {
   content: "3";
 }
 .rack .playable-tile[data-letter='f']::after,
 .rack .playable-tile[data-letter='h']::after,
-.rack .playable-tile[data-letter='v']::after,
-.rack .playable-tile[data-letter='w']::after,
-.rack .playable-tile[data-letter='y']::after {
+.rack .playable-tile[data-letter='v']::after {
   content: "4";
 }
-.rack .playable-tile[data-letter='k']::after {
-  content: "5";
-}
 .rack .playable-tile[data-letter='j']::after,
-.rack .playable-tile[data-letter='x']::after {
+.rack .playable-tile[data-letter='q']::after {
   content: "8";
 }
-.rack .playable-tile[data-letter='q']::after,
-.rack .playable-tile[data-letter='z']::after {
+.rack .playable-tile[data-letter='k']::after,
+.rack .playable-tile[data-letter='w']::after,
+.rack .playable-tile[data-letter='x']::after,
+.rack .playable-tile[data-letter='y']::after,
+.rack .playable-tile[data-letter='z']::after{
   content: "10";
 }
+
 .mini {
   /*margin-top: 12.5mm;*/
   display: flex;
@@ -142,8 +141,8 @@ body {
   background-color: #f5cf90;
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/49914/veneer-birch-texture-fs8.png');
   position: relative;
-  width: min(5vh,5vw);
-  height: min(5vh,5vw);
+  width: min(4.7vh,4.7vw);
+  height: min(4.7vh,4.7vw);
   box-sizing: border-box;
   box-shadow: 0 0.5625mm 0.375mm -0.25mm rgba(0, 0, 0, 0.4);
   border-style: solid;
@@ -179,43 +178,43 @@ body {
   bottom: 14.5%;
   transform: translate(50%, 50%);
 }
-.mini .playable-tile[data-letter='e']::after,
+
 .mini .playable-tile[data-letter='a']::after,
+.mini .playable-tile[data-letter='e']::after,
 .mini .playable-tile[data-letter='i']::after,
-.mini .playable-tile[data-letter='o']::after,
-.mini .playable-tile[data-letter='n']::after,
-.mini .playable-tile[data-letter='r']::after,
-.mini .playable-tile[data-letter='t']::after,
 .mini .playable-tile[data-letter='l']::after,
+.mini .playable-tile[data-letter='n']::after,
+.mini .playable-tile[data-letter='o']::after,
+.mini .playable-tile[data-letter='r']::after,
 .mini .playable-tile[data-letter='s']::after,
+.mini .playable-tile[data-letter='t']::after,
 .mini .playable-tile[data-letter='u']::after {
   content: "1";
 }
 .mini .playable-tile[data-letter='d']::after,
-.mini .playable-tile[data-letter='g']::after {
+.mini .playable-tile[data-letter='g']::after,
+.mini .playable-tile[data-letter='m']::after {
   content: "2";
 }
 .mini .playable-tile[data-letter='b']::after,
 .mini .playable-tile[data-letter='c']::after,
-.mini .playable-tile[data-letter='m']::after,
 .mini .playable-tile[data-letter='p']::after {
   content: "3";
 }
 .mini .playable-tile[data-letter='f']::after,
 .mini .playable-tile[data-letter='h']::after,
-.mini .playable-tile[data-letter='v']::after,
-.mini .playable-tile[data-letter='w']::after,
-.mini .playable-tile[data-letter='y']::after {
+.mini .playable-tile[data-letter='v']::after {
   content: "4";
 }
-.mini .playable-tile[data-letter='k']::after {
-  content: "5";
-}
 .mini .playable-tile[data-letter='j']::after,
-.mini .playable-tile[data-letter='x']::after {
+.mini .playable-tile[data-letter='q']::after {
   content: "8";
 }
-.mini .playable-tile[data-letter='q']::after,
+.mini .playable-tile[data-letter='k']::after,
+.mini .playable-tile[data-letter='w']::after,
+.mini .playable-tile[data-letter='x']::after,
+.mini .playable-tile[data-letter='y']::after,
 .mini .playable-tile[data-letter='z']::after {
   content: "10";
 }
+

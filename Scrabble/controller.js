@@ -2,10 +2,27 @@
 class Controller {
 
     infoMessageDiv = document.getElementById("info");
+    bestPlay = null;
 
     constructor() {
         this.model = new Model();
         this.drawTiles();
+        this.refreshScorePanel();
+    }
+
+    searchForBestPlay() {
+        this.displayInfoMessage("Le maître du jeu est entrain de réfléchir. Veuillez patienter.");
+        setTimeout(() => {
+           this.bestPlay = master.getBestPlay();
+            this.displayInfoMessage("À vous de jouer !");
+        }, 1);
+    }
+
+    refreshScorePanel() {
+        document.getElementById("yourscore").innerHTML = this.model.myScore + "" + (this.model.myLastPlay != null ? " (+" + this.model.myLastPlay + ")" : "" );
+        document.getElementById("masterscore").innerHTML = this.model.masterScore + "" + (this.model.masterLastPlay != null ? " (+" + this.model.masterLastPlay + ")" : "" );
+        document.getElementById("playnumber").innerHTML = this.model.numberOfPlays + "";
+        document.getElementById("letternumber").innerHTML = this.model.getNumberOfRemainingLetters() + "";
     }
 
     displayInfoMessage(msg) {
@@ -34,12 +51,49 @@ class Controller {
         let error = this.isValid();
         if(!error) {
             let cnt = this.getPoints();
+            this.setError("");
+            this.masterPlay(cnt, this.bestPlay);
             return cnt;
+        } else {
+            this.setError(error);
         }
 
         //if(error)
         //    console.log(error);
         return -1;
+    }
+
+    masterPlay(myPlay, masterPlay) {
+        this.model.addPlay(myPlay, masterPlay);
+        this.refreshScorePanel();
+        resetRackAndBoard();
+        this.removeAllTilesFromBoard();
+        let word = masterPlay.word;
+        let place = masterPlay.place;
+        for(let i = 0; i < place.length; i++) {
+            this.model.board[place[i].row][place[i].column] = word.charAt(i);
+        }
+
+        this.removeLettersFromRack(word);
+        this.drawTiles();
+        this.searchForBestPlay();
+
+    }
+
+    removeLettersFromRack(word) {
+        for(const char of word) {
+            for(let i = 0; i < this.model.rack.length; i++) {
+                if(this.model.rack[i] == char) {
+                    this.model.rack.splice(i, 1);
+                    i--;
+                    break;
+                }
+            }
+        }
+    }
+
+    setError(error) {
+        document.getElementById("error").innerHTML = error;
     }
 
     isValid() {
@@ -116,7 +170,7 @@ class Controller {
                 let words = this.getCreatedWords();
                 for(let i = 0; i < words.length; i++) {
                     if(!this.isValidWord(words[i].word)) {
-                        return "Le mot '" + words[i].word + "' n'existe pas";
+                        return "Le mot '" + words[i].word.toUpperCase() + "' n'existe pas";
                     }
                 }
 
@@ -145,13 +199,13 @@ class Controller {
             for (let i = 0; i < playedColumns.length; i++) {
                 let col_num = playedColumns[i];
 
-                if (i == 0 && col_num >= 1) {
+                if (col_num >= 1) {
                     //check left
                     if (this.model.board[row_num][col_num - 1] != null)
                         return true;
                 }
 
-                if (i == playedColumns.length - 1 && col_num < this.model.column_length - 1) {
+                if (col_num < this.model.column_length - 1) {
                     //check right
                     if (this.model.board[row_num][col_num + 1] != null)
                         return true;
@@ -177,13 +231,13 @@ class Controller {
             for (let i = 0; i < playedRows.length; i++) {
                 let row_num = playedRows[i];
 
-                if (i == 0 && row_num >= 1) {
+                if (row_num >= 1) {
                     //check top
                     if (this.model.board[row_num - 1][col_num] != null)
                         return true;
                 }
 
-                if (i == playedRows.length - 1 && row_num < this.model.row_length - 1) {
+                if (row_num < this.model.row_length - 1) {
                     //check bottom
                     if (this.model.board[row_num + 1][col_num] != null)
                         return true;

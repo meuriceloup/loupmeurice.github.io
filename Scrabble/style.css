@@ -92,7 +92,7 @@ button {
 }
 
 .leftScore span {
-    line-height:20px;
+    line-height:min(4vh, 4vw);
 }
 
 .bottomScore {
@@ -104,9 +104,31 @@ button {
     font-weight: bold;
     font-size: min(2vh, 2vw);
     color: #af804f;
-    margin-left: 10px;
+    margin-left: min(2vh, 2vw);
     font-family: "Lucida Console", "Fira Sans", monospace;
+    word-break: normal;
+    line-height: min(3vh, 3vw);
 
+}
+
+#score div {
+    margin-left: min(2vh, 2vw);
+}
+
+#score #info {
+    margin-left: 0px;
+}
+
+#score #error {
+    margin-left: 0px;
+}
+
+#score #info {
+    color: deepskyblue;
+}
+
+#score #error {
+    color: red;
 }
 
 

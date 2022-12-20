@@ -43,7 +43,7 @@
   </div>
   <div id="buttons">
 	  <button class="outline" onclick="console.log('points:', controller.play());">Jouer</button>
-	  <!-- <button class="outline" onclick="console.log(master.searchForBestPlay())">MASTER</button> -->
+	  <button class="outline" onclick="console.log(master.searchForBestPlay())">MASTER</button>
 	  <button class="outline" onclick="resetRackAndBoard()">
 		  <i class="fa fa-arrow-down"></i>
 		  <i class="fa fa-arrow-down"></i>
@@ -52,14 +52,17 @@
 
   <div id="score">
 	  <br>
-	  <div><span>Votre score:</span><span id="yourscore"></span></div>
+	  <span>Votre score:</span><span id="yourscore"></span>
 	  <br>
-	  <div><span>Score du Maître:</span><span id="masterscore"></span></div>
+	  <span>Score du Maître:</span><span id="masterscore"></span>
 	  <br>
-	  <div><span>Tours joués:</span><span id="playnumber"></span></div>
-	  <br><span>Lettres restantes:</span><span id="letternumber"></span>
+	  <span>Tours joués:</span><span id="playnumber"></span>
+	  <br>
+	  <span>Lettres restantes:</span><span id="letternumber"></span>
 	  <br><br><br>
-	  <span id="message"></span>
+	  <div><span id="info"></span></div>
+	  <br><br>
+	  <div><span id="error"></span></div>
   </div>
 
 
@@ -77,10 +80,12 @@
 <script>
 	controller = new Controller();
 	master = new Master(controller.model, controller);
-
 </script>
 <script type="text/javascript" src="draggable.js"></script>
-  <script type="text/javascript" src="score.js"></script>
+<script type="text/javascript" src="score.js"></script>
+<script>
+	controller.searchForBestPlay();
+</script>
 
 
 </body></html>

@@ -10,6 +10,12 @@ class Model {
 	center = [7,7];
 	nb_of_rack_riles = 7;
 	rack = [];
+	myScore = 0;
+	myLastPlay = null;
+	masterScore = 0;
+	masterLastPlay = null;
+	numberOfPlays = 0;
+
 
 	constructor() {
 	  	this.board = [];
@@ -26,14 +32,24 @@ class Model {
 			this.play.push(arr2);
 	  	}
 
-	  	this.board[6][7] = 'a';
-	  	this.board[8][7] = 'e';
-
-	  	for(const arr of this.randomTiles(45)) {
-	  		this.board[arr[0]][arr[1]] = this.randomLetter()
-		}
+	  	//for(const arr of this.randomTiles(45)) {
+	  	//	this.board[arr[0]][arr[1]] = this.randomLetter()
+		//}
 
 
+	}
+
+	addPlay(myPlay, masterPlay) {
+		this.myScore += myPlay;
+		console.log(masterPlay);
+		this.masterScore += masterPlay.points;
+		this.numberOfPlays++;
+		this.myLastPlay = myPlay;
+		this.masterLastPlay = masterPlay.points;
+	}
+
+	getNumberOfRemainingLetters() {
+		return this.tiles.length;
 	}
 
 	randomTiles(number) {
