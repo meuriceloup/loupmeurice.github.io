@@ -39,3 +39,24 @@
 .alwaysOnTop {
 	z-index: 99999;
 }
+
+.temporary.invalid {
+	border: solid red 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.latestPlay.invalid {
+	border: solid red 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.playable-tile.invalid {
+	border: solid red 3px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}

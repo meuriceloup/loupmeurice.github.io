@@ -15,7 +15,7 @@
   </head>
 
 
-<body translate="no">
+<body  onselectstart="return false">
   <div id="js-board"></div>
   <div class="rack">
 	<div style="display:inline-block;"><div><a><img src="img/rack.svg"></a></div></div>
@@ -42,7 +42,7 @@
 	</div>
   </div>
   <div id="buttons">
-	  <button id="playBtn" class="outline" onclick="console.log('points:', controller.play());">Jouer</button>
+	  <button id="playBtn" class="outline" onclick="controller.play();">Jouer<span id="currentPlayScore"></span></button>
 	  <button id="resetRackBtn" class="outline" onclick="resetRackAndBoard()">
 		  <i class="fa fa-arrow-down"></i>
 		  <i class="fa fa-arrow-down"></i>

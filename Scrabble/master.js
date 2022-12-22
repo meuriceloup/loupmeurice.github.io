@@ -39,7 +39,6 @@ class Master {
 
     getBestPlay() {
         let places = this.getAvailablePlaces(this.model.rack.length);
-        console.log("nb of places", places.size);
         let map = new Map();
         for(const place of places) {
             let size = place.length;
@@ -82,8 +81,6 @@ class Master {
             unexistingPossibleWords.set(key, unexarr);
         }
 
-        console.log("nb of words:", count)
-
         let max = 0;
         let maxPlay = null;
         let check = 0;
@@ -122,9 +119,6 @@ class Master {
             }
         }
 
-        console.log("max: " + max);
-        console.log("best play:", maxPlay);
-        console.log("nb of checked plays:", check);
         this.model.removeAllTilesFromBoard();
 
         return maxPlay;

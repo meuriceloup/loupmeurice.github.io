@@ -16,6 +16,7 @@ function getRackShift() {
 }
 
 function dragElements(elements) {
+
 	for(let i = 0; i < elements.length; i++)
 		dragElement(elements[i]);
 }
@@ -64,38 +65,88 @@ function resetRackAndBoard() {
 		draggableTile.querySelector(".playable-tile").classList.remove("transparent");
 	}
 
+	// 3. remove any invalid words formed by temporary tiles
+	for(const tile of document.querySelectorAll(".board .playable-tile.invalid"))
+		tile.classList.remove("invalid");
+
+	// 4. reset the current play score
+	controller.displayCurrentPlayScore("");
 
 	controller.removeAllTilesFromBoard();
+}
+
+function getClientY(e) {
+	if(!e)
+		return null;
+
+	if(e.clientY)
+		return e.clientY;
+
+	if(e.touches && e.touches[0] && e.touches[0].clientY)
+		return e.touches[0].clientY;
+
+	return null;
+}
+
+function getClientX(e) {
+	if(!e)
+		return null;
+
+	if(e.clientX)
+		return e.clientX;
+
+	if(e.touches && e.touches[0] && e.touches[0].clientX)
+		return e.touches[0].clientX;
+
+	return null;
+}
+
+function stopAutoPageScrolling(e) {
+	//document.documentElement.style.overflow = 'hidden';
+}
+
+function activateAutoPageScrolling(e) {
+	//document.documentElement.style.overflow = 'auto';
 }
 
 function dragElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
-  
+  elmnt.addEventListener('touchstart', dragMouseDown);
+
 
   function dragMouseDown(e) {
     e = e || window.event;
-    e.preventDefault();
+    //e.preventDefault();
+	stopAutoPageScrolling(e);
+	//document.documentElement.style.overflow = 'hidden';
+
+
     if(isInvisible(elmnt))
     	return;
 
     // get the mouse cursor position at startup:
 	elmnt.classList.add("alwaysOnTop");
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+
+	pos3 = getClientX(e);
+	pos4 = getClientY(e);
+
+
     document.onmouseup = closeDragElement;
+	document.addEventListener('touchend', closeDragElement);
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
+	document.addEventListener('touchmove', elementDrag);
   }
 
   function elementDrag(e) {
     e = e || window.event;
-    e.preventDefault();
+    //e.preventDefault();
     // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+    pos1 = pos3 - getClientX(e);
+    pos2 = pos4 - getClientY(e);
+    pos3 = getClientX(e);
+    pos4 = getClientY(e);
     // set the element's new position:
 	let top = elmnt.offsetTop - pos2;
 	let left = elmnt.offsetLeft - pos1;
@@ -175,6 +226,12 @@ function dragElement(elmnt) {
 
   }
 
+  function removeInvalidTiles() {
+	  let tiles = document.querySelectorAll('#js-board .tile .invalid');
+	  for(const tile of tiles)
+		  tile.classList.remove("invalid");
+  }
+
   function closeDragElement(e) {
     // stop moving when mouse button is released:
 	elmnt.classList.remove("alwaysOnTop");
@@ -192,9 +249,33 @@ function dragElement(elmnt) {
 			playTileOnBoard(elmnt.querySelector(".playable-tile"), [column, row]);
 		}
 	}
-	
+
+	  removeInvalidTiles();
+
+	  let error = controller.isValid();
+	  if(error && controller.invalidWord != null) {
+	  	for(const letter of controller.invalidWord.letters) {
+	  		let tile = document.querySelector('#js-board .tile[data-col="' + letter.coordinates[1] + '"][data-row="' + letter.coordinates[0] + '"] .playable-tile');
+	  		tile.classList.add("invalid");
+		}
+	  } else {
+		  removeInvalidTiles();
+
+	  }
+
+	  let currentPlayScore = "";
+	  if(!error) {
+		  let cnt = controller.getPoints();
+		  currentPlayScore = "  (+" + cnt + ")";
+	  }
+	  controller.displayCurrentPlayScore(currentPlayScore);
+
+
+	activateAutoPageScrolling(e);
     document.onmouseup = null;
     document.onmousemove = null;
+    document.removeEventListener('touchend', closeDragElement);
+	document.removeEventListener('touchmove', elementDrag);
   }
   
   function playTileOnBoard(letter, coordinates) {
@@ -266,6 +347,7 @@ function dragMiniElements(elements) {
 function dragMiniElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
+  elmnt.addEventListener("touchstart", dragMouseDown);
   
   let parent = elmnt.parentNode;
   let positions = [parseInt(parent.getAttribute("data-col")),parseInt(parent.getAttribute("data-row"))];
@@ -273,10 +355,10 @@ function dragMiniElement(elmnt) {
   function dragMouseDown(e) {
 	
     e = e || window.event;
-    e.preventDefault();
+    //e.preventDefault();
     // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+    pos3 = getClientX(e);
+    pos4 = getClientY(e);
 	let rackLetterNumber = parseInt(parent.getAttribute("free"));
 	if(rackLetterNumber != null && rackLetterNumber != "true")
 		dragRackLetter(rackLetterNumber, e);

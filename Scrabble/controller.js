@@ -84,6 +84,10 @@ class Controller {
         return -1;
     }
 
+    displayCurrentPlayScore(msg) {
+        document.getElementById("currentPlayScore").innerHTML = msg;
+    }
+
     removeLatestPlayedTiles() {
        let tiles = document.querySelectorAll("#js-board .tile .playable-tile.latestPlay");
        for(const tile of tiles)
@@ -135,7 +139,7 @@ class Controller {
     }
 
     isValid() {
-
+        this.invalidWord = null;
         let rack = [...this.model.rack];
         let play = [...this.model.getPlayedLetters()];
         for(const letter of play) {
@@ -208,6 +212,7 @@ class Controller {
                 let words = this.getCreatedWords();
                 for(let i = 0; i < words.length; i++) {
                     if(!this.isValidWord(words[i].word)) {
+                        this.invalidWord = words[i];
                         return "Le mot '" + words[i].word.toUpperCase() + "' n'existe pas";
                     }
                 }
@@ -563,19 +568,16 @@ class Controller {
 
     isGameOver() {
         if(this.redrawInARow >= MAX_REDRAW) {
-            console.log("too many redraw");
             return true;
         }
 
 
         if(this.model.rack.length + this.model.tiles.length <= 1) {
-            console.log("one or zero letters")
             return true;
         }
 
         let arr = [...this.model.rack].concat([...this.model.tiles]);
         if(this.hasOnlyConsonants(arr) || this.hasOnlyVowels(arr)) {
-            console.log("only consonants or vowels")
             return true;
         }
         return false;
@@ -626,7 +628,6 @@ class Controller {
 
         if(this.latestPlay != null) {
             for(const place of this.latestPlay) {
-                console.log(place);
                 document.querySelector("#js-board .tile[data-row='" + place.row + "'][data-col='" + place.column + "'] .playable-tile").classList.add("latestPlay");
             }
         }

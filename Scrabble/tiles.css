@@ -144,7 +144,7 @@ body {
   width: min(4.7vh,4.7vw);
   height: min(4.7vh,4.7vw);
   box-sizing: border-box;
-  box-shadow: 0 0.5625mm 0.375mm -0.25mm rgba(0, 0, 0, 0.4);
+  /*box-shadow: 0 0.5625mm 0.375mm -0.25mm rgba(0, 0, 0, 0.4);*/
   border-style: solid;
   border-top-width: 0.375mm;
   border-left-width: 1px;
