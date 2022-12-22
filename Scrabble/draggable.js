@@ -45,9 +45,13 @@ function resetRackAndBoard() {
 
 	// 1. remove all occupied tiles from the board
 	let occupiedTiles = document.querySelectorAll("#js-board .tile");
+	let positions = [];
 	for(const tile of occupiedTiles) {
 		let free = tile.getAttribute("free");
 		if(free != null && free != 'false') {
+			let position = tile.getAttribute("free");
+			if(isNaN(position) == false)
+				positions.push(parseInt(position));
 			tile.querySelector(".draggable").classList.add("invisible");
 			tile.removeAttribute("free");
 			tile.querySelector(".playable-tile").classList.remove("temporary");
@@ -55,9 +59,11 @@ function resetRackAndBoard() {
 	}
 
 	// 2. get all the tiles back to the rack
-	for (const tile of document.querySelectorAll(".rack .playable-tile")) {
-		tile.classList.remove("transparent");
+	for(const position of positions) {
+		let draggableTile = document.querySelector(".rack .draggable[position='" + position + "']")
+		draggableTile.querySelector(".playable-tile").classList.remove("transparent");
 	}
+
 
 	controller.removeAllTilesFromBoard();
 }
@@ -83,7 +89,6 @@ function dragElement(elmnt) {
   }
 
   function elementDrag(e) {
-  	console.log("yup");
     e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position:
@@ -125,7 +130,6 @@ function dragElement(elmnt) {
 	if(mustSwitch == false && position < controller.model.rack.length - 1) {
 		//check right
 		for(let i = 1; position + i < controller.model.rack.length && mustSwitch == false; i++) {
-
 			neighbour = elmnt.parentNode.querySelector(".draggable[position='" + (position + i) + "']");
 			let center1 = getCenter(elmnt);
 			let rect = neighbour.getBoundingClientRect();
@@ -194,17 +198,27 @@ function dragElement(elmnt) {
   }
   
   function playTileOnBoard(letter, coordinates) {
+  	  let dataLetter = letter.getAttribute("data-letter");
+	  if(dataLetter == ' ') {
+	  	let value = null;
+	  	while(value == null) {
+			value = prompt("Choisissez la letter", "A-Z");
+			if(/^[a-zA-Z]$/.test(value) == false)
+				value = null;
+		}
+		dataLetter = " " + value;
+	  }
+
 	  let boardTile = document.querySelector('[data-col="' + coordinates[0] + '"][data-row="' + coordinates[1] + '"]');
 	  let tile = boardTile.querySelector(".mini");
 	  tile.classList.remove("invisible");
 	  let playableTile = tile.querySelector(".playable-tile");
-	  playableTile.setAttribute("data-letter", letter.getAttribute("data-letter"));
+	  playableTile.setAttribute("data-letter", dataLetter);
 	  playableTile.classList.add("temporary");
 	  boardTile.setAttribute("free", letter.parentNode.getAttribute("position"));
-	  let value = letter.getAttribute("data-letter");
 	  resetTilePosition(letter.parentNode);
 	  letter.classList.add("transparent");
-	  controller.addTileToBoard(coordinates[1], coordinates[0], value)
+	  controller.addTileToBoard(coordinates[1], coordinates[0], dataLetter);
   }
   
   function getBoardTile(element) {

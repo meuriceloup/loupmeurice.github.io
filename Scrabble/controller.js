@@ -1,8 +1,9 @@
-
+MAX_REDRAW = 10;
 class Controller {
 
     infoMessageDiv = document.getElementById("info");
     bestPlay = null;
+    redrawInARow = 0;
 
     constructor() {
         this.model = new Model();
@@ -14,8 +15,28 @@ class Controller {
         this.displayInfoMessage("Le maître du jeu est entrain de réfléchir. Veuillez patienter.");
         setTimeout(() => {
            this.bestPlay = master.getBestPlay();
-            this.displayInfoMessage("À vous de jouer !");
+           if(this.bestPlay == null) {
+                //this.displayInfoMessage("Impossible de jouer avec ce tirage.");
+                this.resetDraw();
+           } else {
+               this.redrawInARow = 0;
+               this.displayInfoMessage("À vous de jouer !");
+           }
         }, 1);
+    }
+
+    resetDraw() {
+        this.redrawInARow++;
+
+        resetRackAndBoard();
+        this.removeAllTilesFromBoard();
+        for(let i = 0; i < this.model.rack.length; i++) {
+            this.model.tiles.push(this.model.rack[i]);
+            this.model.rack.splice(i, 1);
+            i--;
+        }
+        if(this.drawTiles() == true)
+            this.searchForBestPlay();
     }
 
     refreshScorePanel() {
@@ -63,6 +84,12 @@ class Controller {
         return -1;
     }
 
+    removeLatestPlayedTiles() {
+       let tiles = document.querySelectorAll("#js-board .tile .playable-tile.latestPlay");
+       for(const tile of tiles)
+           tile.classList.remove("latestPlay");
+    }
+
     masterPlay(myPlay, masterPlay) {
         this.model.addPlay(myPlay, masterPlay);
         this.refreshScorePanel();
@@ -70,13 +97,24 @@ class Controller {
         this.removeAllTilesFromBoard();
         let word = masterPlay.word;
         let place = masterPlay.place;
+        let j = 0;
+
+        this.removeLatestPlayedTiles();
+        this.latestPlay = [...place];
         for(let i = 0; i < place.length; i++) {
-            this.model.board[place[i].row][place[i].column] = word.charAt(i);
+            let letter = word.charAt(j);
+            if(letter == " ") {
+                j++;
+                letter += word.charAt(j);
+            }
+            this.model.board[place[i].row][place[i].column] = letter.toLowerCase();
+
+            j++;
         }
 
         this.removeLettersFromRack(word);
-        this.drawTiles();
-        this.searchForBestPlay();
+        if(this.drawTiles() == true)
+            this.searchForBestPlay();
 
     }
 
@@ -101,9 +139,9 @@ class Controller {
         let rack = [...this.model.rack];
         let play = [...this.model.getPlayedLetters()];
         for(const letter of play) {
-            const index = rack.indexOf(letter);
+            const index = rack.indexOf(letter.charAt(0));
             if(index == -1)
-                return "Vous ne disposez des letters nécessaires pour effectuer ce coup"
+                return "Vous ne disposez des lettres nécessaires pour effectuer ce coup";
             rack.splice(index, 1);
         }
 
@@ -186,6 +224,7 @@ class Controller {
     }
 
     isValidWord(word) {
+        word = word.replaceAll(' ', '');
         return dictionary.has(word.toUpperCase());
     }
 
@@ -273,17 +312,17 @@ class Controller {
             let letters = [];
             for(let i = start; i <= end; i++) {
                 if(playedColumns.includes(i)) {
-                    word += this.model.play[playedRows[0]][i];
+                    word += this.getActualLetter(this.model.play[playedRows[0]][i]);
                     letters.push(
-                        {'letter': this.model.play[playedRows[0]][i],
+                        {'letter': this.getActualTile(this.model.play[playedRows[0]][i]),
                         'coordinates' : [playedRows[0],i],
                         'rack' : 'true'}
                         )
                 }
                 if(this.model.board[playedRows[0]][i] != null) {
-                    word += this.model.board[playedRows[0]][i];
+                    word += this.getActualLetter(this.model.board[playedRows[0]][i]);
                     letters.push(
-                        {'letter': this.model.board[playedRows[0]][i],
+                        {'letter': this.getActualTile(this.model.board[playedRows[0]][i]),
                             'coordinates' : [playedRows[0],i],
                             'rack' : 'false'}
                             );
@@ -293,9 +332,9 @@ class Controller {
             for(let i = start - 1; i >= 0; i--) {
                 //left
                 if(this.model.board[playedRows[0]][i] != null) {
-                    word = this.model.board[playedRows[0]][i] + word;
+                    word = this.getActualLetter(this.model.board[playedRows[0]][i]) + word;
                     letters.unshift(
-                        {'letter': this.model.board[playedRows[0]][i],
+                        {'letter': this.getActualTile(this.model.board[playedRows[0]][i]),
                             'coordinates' : [playedRows[0],i],
                             'rack' : 'false'});
                 }
@@ -306,9 +345,9 @@ class Controller {
             for(let i = end + 1; i < this.model.column_length; i++) {
                 //right
                 if(this.model.board[playedRows[0]][i] != null) {
-                    word = word + this.model.board[playedRows[0]][i];
+                    word = word + this.getActualLetter(this.model.board[playedRows[0]][i]);
                     letters.push(
-                        {'letter': this.model.board[playedRows[0]][i],
+                        {'letter': this.getActualTile(this.model.board[playedRows[0]][i]),
                             'coordinates' : [playedRows[0],i],
                             'rack' : 'false'}
                     );
@@ -322,18 +361,18 @@ class Controller {
 
             //vertical words
             for(let i = 0; i < playedColumns.length; i++) {
-                let word = this.model.play[playedRows[0]][playedColumns[i]];
+                let word = this.getActualLetter(this.model.play[playedRows[0]][playedColumns[i]]);
                 let letters = [];
                 letters.push(
-                    {'letter': word,
+                    {'letter': this.getActualTile(this.model.play[playedRows[0]][playedColumns[i]]),
                         'coordinates' : [playedRows[0],playedColumns[i]],
                         'rack' : 'true'}
                 );
                 for(let j = playedRows[0] - 1; j > 0; j--) {
                     if(this.model.board[j][playedColumns[i]] != null) {
-                        word = this.model.board[j][playedColumns[i]] + word;
+                        word = this.getActualLetter(this.model.board[j][playedColumns[i]]) + word;
                         letters.unshift(
-                            {'letter': this.model.board[j][playedColumns[i]],
+                            {'letter': this.getActualTile(this.model.board[j][playedColumns[i]]),
                                 'coordinates' : [j,playedColumns[i]],
                                 'rack' : 'false'});
                     }
@@ -343,9 +382,9 @@ class Controller {
 
                 for(let j = playedRows[0] + 1; j < this.model.row_length; j++) {
                     if(this.model.board[j][playedColumns[i]] != null) {
-                        word += this.model.board[j][playedColumns[i]];
+                        word += this.getActualLetter(this.model.board[j][playedColumns[i]]);
                         letters.push(
-                            {'letter': this.model.board[j][playedColumns[i]],
+                            {'letter': this.getActualTile(this.model.board[j][playedColumns[i]]),
                                 'coordinates' : [j,playedColumns[i]],
                                 'rack' : 'false'}
                         );
@@ -366,17 +405,17 @@ class Controller {
             let letters = [];
             for(let i = start; i <= end; i++) {
                 if (playedRows.includes(i)) {
-                    word += this.model.play[i][playedColumns[0]];
+                    word += this.getActualLetter(this.model.play[i][playedColumns[0]]);
                     letters.push(
-                        {'letter': this.model.play[i][playedColumns[0]],
+                        {'letter': this.getActualTile(this.model.play[i][playedColumns[0]]),
                             'coordinates' : [i,playedColumns[0]],
                             'rack' : 'true'}
                     );
                 }
                 if (this.model.board[i][playedColumns[0]] != null) {
-                    word += this.model.board[i][playedColumns[0]]
+                    word += this.getActualLetter(this.model.board[i][playedColumns[0]]);
                     letters.push(
-                        {'letter': this.model.board[i][playedColumns[0]],
+                        {'letter': this.getActualTile(this.model.board[i][playedColumns[0]]),
                             'coordinates' : [i,playedColumns[0]],
                             'rack' : 'false'}
                     );
@@ -386,9 +425,9 @@ class Controller {
             for(let i = start - 1; i >= 0; i--) {
                 //bottom
                 if(this.model.board[i][playedColumns[0]] != null) {
-                    word = this.model.board[i][playedColumns[0]] + word;
+                    word = this.getActualLetter(this.model.board[i][playedColumns[0]]) + word;
                     letters.unshift(
-                        {'letter': this.model.board[i][playedColumns[0]],
+                        {'letter': this.getActualTile(this.model.board[i][playedColumns[0]]),
                             'coordinates' : [i,playedColumns[0]],
                             'rack' : 'false'});
                 }
@@ -399,9 +438,9 @@ class Controller {
             for(let i = end + 1; i < this.model.row_length; i++) {
                 //top
                 if(this.model.board[i][playedColumns[0]] != null) {
-                    word = word + this.model.board[i][playedColumns[0]];
+                    word = word + this.getActualLetter(this.model.board[i][playedColumns[0]]);
                     letters.push(
-                        {'letter': this.model.board[i][playedColumns[0]],
+                        {'letter': this.getActualTile(this.model.board[i][playedColumns[0]]),
                             'coordinates' : [i,playedColumns[0]],
                             'rack' : 'false'});
                 }
@@ -414,18 +453,18 @@ class Controller {
 
             //horizontal words
             for(let i = 0; i < playedRows.length; i++) {
-                let word = this.model.play[playedRows[i]][playedColumns[0]];
+                let word = this.getActualLetter(this.model.play[playedRows[i]][playedColumns[0]]);
                 let letters = [];
                 letters.push(
-                    {'letter': word,
+                    {'letter': this.getActualTile(this.model.play[playedRows[i]][playedColumns[0]]),
                         'coordinates' : [playedRows[i],playedColumns[0]],
                         'rack' : 'true'}
                 );
                 for(let j = playedColumns[0] - 1; j > 0; j--) {
                     if(this.model.board[playedRows[i]][j] != null) {
-                        word = this.model.board[playedRows[i]][j] + word;
+                        word = this.getActualLetter(this.model.board[playedRows[i]][j]) + word;
                         letters.unshift(
-                            {'letter': this.model.board[playedRows[i]][j],
+                            {'letter': this.getActualTile(this.model.board[playedRows[i]][j]),
                                 'coordinates' : [playedRows[i],j],
                                 'rack' : 'false'});
                     }
@@ -435,9 +474,9 @@ class Controller {
 
                 for(let j = playedColumns[0] + 1; j < this.model.row_length; j++) {
                     if(this.model.board[playedRows[i]][j] != null) {
-                        word += this.model.board[playedRows[i]][j];
+                        word += this.getActualLetter(this.model.board[playedRows[i]][j]);
                         letters.push(
-                            {'letter': this.model.board[playedRows[i]][j],
+                            {'letter': this.getActualTile(this.model.board[playedRows[i]][j]),
                                 'coordinates' : [playedRows[i],j],
                                 'rack' : 'false'});
                     }
@@ -451,6 +490,22 @@ class Controller {
 
         return words;
     }
+
+    getActualLetter(letter) {
+        if(letter.length == 1)
+            return letter;
+
+        return letter.charAt(1);
+    }
+
+    getActualTile(letter) {
+        if(letter.length == 1)
+            return letter;
+
+        return letter.charAt(0);
+    }
+
+
 
     getGaps() {
         let res = [];
@@ -480,21 +535,80 @@ class Controller {
     }
 
     drawTiles() {
-        for(let i = this.model.rack.length; i < this.model.nb_of_rack_riles; i++) {
-            let index = Math.floor(Math.random() * this.model.tiles.length);
-            this.model.rack.push(this.model.tiles[index]);
-            this.model.tiles.splice(index, 1);
+        if(this.isGameOver()) {
+            this.refreshView();
+            this.displayInfoMessage("La partie est terminée!");
+            this.finalizeGame();
+            return false;
+        } else {
+            for (let i = this.model.rack.length; i < this.model.nb_of_rack_riles && this.model.tiles.length; i++) {
+                let index = Math.floor(Math.random() * this.model.tiles.length);
+                this.model.rack.push(this.model.tiles[index]);
+                this.model.tiles.splice(index, 1);
+            }
+            this.refreshView();
+            return true;
+        }
+    }
+
+    finalizeGame() {
+        let btn = document.getElementById("resetRackBtn");
+        btn.disabled = true;
+        btn.classList.add("disabled");
+
+        btn = document.getElementById("playBtn");
+        btn.disabled = true;
+        btn.classList.add("disabled");
+    }
+
+    isGameOver() {
+        if(this.redrawInARow >= MAX_REDRAW) {
+            console.log("too many redraw");
+            return true;
         }
 
-        this.refreshView();
+
+        if(this.model.rack.length + this.model.tiles.length <= 1) {
+            console.log("one or zero letters")
+            return true;
+        }
+
+        let arr = [...this.model.rack].concat([...this.model.tiles]);
+        if(this.hasOnlyConsonants(arr) || this.hasOnlyVowels(arr)) {
+            console.log("only consonants or vowels")
+            return true;
+        }
+        return false;
+    }
+
+
+    hasOnlyConsonants(letters) {
+        let vowels = ["A", "E", "I", "O", "U", "Y", " "];
+        for(const letter of letters)
+            if(vowels.includes(letter.toUpperCase()))
+                return false;
+        return true;
+    }
+
+    hasOnlyVowels(letters) {
+        let vowels = ["A", "E", "I", "O", "U"];
+        for(const letter of letters)
+            if(vowels.includes(letter.toUpperCase()) == false)
+                return false;
+        return true;
     }
 
     refreshView() {
         //refreshing rack
         let rack = document.querySelector(".rack");
-        for(let i = 0; i < this.model.nb_of_rack_riles; i++) {
+        for(let i = 0; i < this.model.rack.length; i++) {
             let tile = rack.querySelector(".draggable[position='" + i + "'] .playable-tile");
             tile.setAttribute("data-letter", this.model.rack[i].toLowerCase());
+        }
+
+        for(let i = this.model.rack.length; i < this.model.nb_of_rack_riles; i++) {
+            let tile = rack.querySelector(".draggable[position='" + i + "'] .playable-tile");
+            tile.classList.add("transparent");
         }
 
         //refreshing board
@@ -509,6 +623,13 @@ class Controller {
                     tile.parentNode.parentNode.setAttribute("free", "false");
                 }
             }
+
+        if(this.latestPlay != null) {
+            for(const place of this.latestPlay) {
+                console.log(place);
+                document.querySelector("#js-board .tile[data-row='" + place.row + "'][data-col='" + place.column + "'] .playable-tile").classList.add("latestPlay");
+            }
+        }
     }
 
     getPoints() {

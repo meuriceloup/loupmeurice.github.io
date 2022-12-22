@@ -11,6 +11,12 @@ function positionScore() {
         score.classList.add("bottomScore");
         score.classList.remove("leftScore");
     }
+
+    score.classList.remove("invisible");
 }
 
-onresize = (event) => {positionScore()};
+onresize = (event) => {
+    positionScore();
+    positionElements(document.querySelectorAll(".rack .draggable"));
+
+};

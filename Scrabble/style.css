@@ -92,12 +92,14 @@ button {
 }
 
 .leftScore span {
-    line-height:min(4vh, 4vw);
+    line-height:  min(4vh, 4vw)!important;
 }
 
 .bottomScore {
   width: min(75vh, 75vw);
   top: min(4vh,4vw);
+  min-height: min(45vh,45vw);
+  line-height:  min(2vh, 2vw)!important;
 }
 
 #score span {
@@ -129,6 +131,11 @@ button {
 
 #score #error {
     color: red;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: .35;
 }
 
 

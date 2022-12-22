@@ -36,6 +36,10 @@ class Model {
 	  	//	this.board[arr[0]][arr[1]] = this.randomLetter()
 		//}
 
+		this.rack = ["L", "I", "S", "E", "U", "S", "E"];
+
+		this.tiles = ["A", "B", "C", "D", "E", "E"];
+
 
 	}
 
@@ -145,7 +149,7 @@ class Model {
 
 
 
-	tiles = ['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'J', 'K', 'L', 'L', 'L', 'L', 'L', 'M', 'M', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'P', 'P', 'Q', 'R', 'R', 'R', 'R', 'R', 'R', 'S', 'S', 'S', 'S', 'S', 'S', 'T', 'T', 'T', 'T', 'T', 'T', 'U', 'U', 'U', 'U', 'U', 'U', 'V', 'V', 'W', 'X', 'Y', 'Z'];
+	tiles = [' ', ' ', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'J', 'K', 'L', 'L', 'L', 'L', 'L', 'M', 'M', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'P', 'P', 'Q', 'R', 'R', 'R', 'R', 'R', 'R', 'S', 'S', 'S', 'S', 'S', 'S', 'T', 'T', 'T', 'T', 'T', 'T', 'U', 'U', 'U', 'U', 'U', 'U', 'V', 'V', 'W', 'X', 'Y', 'Z'];
 	points = new Map([
 		{ key: 'A', value: 1 },
 		{ key: 'B', value: 3 },
@@ -172,7 +176,8 @@ class Model {
 		{ key: 'W', value: 10 },
 		{ key: 'X', value: 10 },
 		{ key: 'Y', value: 10},
-		{ key: 'Z', value: 10}
+		{ key: 'Z', value: 10},
+		{ key: ' ', value: 0}
 	].map((obj) => [obj.key, obj.value]));
 
 	bonus = [[MT, null, null, LD, null, null, null, MT, null, null, null, LD, null, null, MT],

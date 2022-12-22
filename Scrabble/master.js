@@ -36,16 +36,10 @@ class Master {
 
     }
 
-    searchForBestPlay() {
-        controller.displayInfoMessage("Le maître du jeu est entrain de réfléchir. Veuillez patienter.");
-        setTimeout(() => {
-            this.getBestPlay();
-            controller.displayInfoMessage("À vous de jouer !");
-        }, 1);
-    }
 
     getBestPlay() {
         let places = this.getAvailablePlaces(this.model.rack.length);
+        console.log("nb of places", places.size);
         let map = new Map();
         for(const place of places) {
             let size = place.length;
@@ -69,44 +63,60 @@ class Master {
         }
         map = map2;
 
-        let possibleWords = new Map();
+        let unexistingPossibleWords = new Map();
+        let existingPossibleWords = new Map();
+        let count = 0;
         for(const key of map.keys()) {
             let words = this.getAllPossibleWords(key, "", this.model.rack);
-            let arr = [];
+            count += words.length;
+            let unexarr = [];
+            let exarr = [];
             for(const word of words) {
-                arr.push({word: word, exists: this.controller.isValidWord(word)});
+                let exists = this.controller.isValidWord(word);
+                if(exists == true)
+                    exarr.push({word: word, exists: exists});
+                else
+                    unexarr.push({word: word, exists: exists});
             }
-            possibleWords.set(key, arr);
+            existingPossibleWords.set(key, exarr);
+            unexistingPossibleWords.set(key, unexarr);
         }
+
+        console.log("nb of words:", count)
 
         let max = 0;
         let maxPlay = null;
         let check = 0;
         for(const key of map.keys()) {
             for(const place of map.get(key)) {
-                for (const word of possibleWords.get(key)) {
+                let array = existingPossibleWords.get(key);
+                if(place.ext == true)
+                    array = array.concat(unexistingPossibleWords.get(key));
+
+                for (const word of array) {
                     this.model.removeAllTilesFromBoard();
 
-                    if(place.ext == false && word.exists == false) {
-                        //no need to check
-                    }
-                    else{
-                        check++;
-                        let i = 0;
-                        for(const tile of place) {
-                            this.model.play[tile.row][tile.column] = word.word[i];
+                    check++;
+                    let i = 0;
+                    for(const tile of place) {
+                        let letter = word.word[i];
+                        if(letter == " ") {
                             i++;
-
+                            letter = " " + word.word[i];
                         }
 
-                        let points = -1;
-                        let error = controller.isValid();
-                        if(!error)
-                            points = controller.getPoints();
-                        if(points > max) {
-                            max = points;
-                            maxPlay = {place: place, word: word.word, points: points};
-                        }
+                        this.model.play[tile.row][tile.column] = letter;
+                        i++;
+
+                    }
+
+                    let points = -1;
+                    let error = controller.isValid();
+                    if(!error)
+                        points = controller.getPoints();
+                    if(points > max) {
+                        max = points;
+                        maxPlay = {place: place, word: word.word, points: points};
                     }
                 }
             }
@@ -122,7 +132,7 @@ class Master {
     }
 
     getAllPossibleWords(length, word, remainingLetters) {
-        if(word.length == length)
+        if(word.replaceAll(" ", "").length == length)
             return [word];
         if(remainingLetters.length == 0)
             return [];
@@ -131,8 +141,16 @@ class Master {
             let letter = remainingLetters[i];
             let remaining = [...remainingLetters];
             remaining.splice(i, 1);
-            let word2 = word + letter;
-            res = res.concat(this.getAllPossibleWords(length, word2, remaining));
+
+            if(letter == ' ') {
+                for(const whiteLetter of "abcdefghijklmnopqrstuvwxyz".toUpperCase()) {
+                    let word2 = word + " " + whiteLetter;
+                    res = res.concat(this.getAllPossibleWords(length, word2, remaining));
+                }
+            } else {
+                let word2 = word + letter;
+                res = res.concat(this.getAllPossibleWords(length, word2, remaining));
+            }
         }
 
         return res;
@@ -142,7 +160,7 @@ class Master {
     getAvailablePlaces(max_nb_tiles) {
         let res = [];
         if(max_nb_tiles <= 0)
-            return res;
+            return new Set(res);
 
         if(this.model.isEmptyBoard()) {
             let i = this.model.center[0];

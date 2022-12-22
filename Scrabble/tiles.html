@@ -42,15 +42,14 @@
 	</div>
   </div>
   <div id="buttons">
-	  <button class="outline" onclick="console.log('points:', controller.play());">Jouer</button>
-	  <button class="outline" onclick="console.log(master.searchForBestPlay())">MASTER</button>
-	  <button class="outline" onclick="resetRackAndBoard()">
+	  <button id="playBtn" class="outline" onclick="console.log('points:', controller.play());">Jouer</button>
+	  <button id="resetRackBtn" class="outline" onclick="resetRackAndBoard()">
 		  <i class="fa fa-arrow-down"></i>
 		  <i class="fa fa-arrow-down"></i>
 	  </button>
   </div>
 
-  <div id="score">
+  <div id="score" class="invisible">
 	  <br>
 	  <span>Votre score:</span><span id="yourscore"></span>
 	  <br>
