@@ -102,11 +102,11 @@ function getClientX(e) {
 }
 
 function stopAutoPageScrolling(e) {
-	//document.documentElement.style.overflow = 'hidden';
+	document.documentElement.style.overflow = 'hidden';
 }
 
 function activateAutoPageScrolling(e) {
-	//document.documentElement.style.overflow = 'auto';
+	document.documentElement.style.overflow = 'auto';
 }
 
 function dragElement(elmnt) {
