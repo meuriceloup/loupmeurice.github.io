@@ -11,8 +11,24 @@ class Controller {
         this.refreshScorePanel();
     }
 
-    searchForBestPlay() {
+    waitingForMaster() {
         this.displayInfoMessage("Le maître du jeu est entrain de réfléchir. Veuillez patienter.");
+        document.getElementById("playBtn").style.display = "none";
+        document.getElementById("resetRackBtn").style.display = "none";
+        document.getElementById("loader").style.display = "initial";
+    }
+
+    masterIsDone() {
+
+        document.getElementById("playBtn").style.display = "initial";
+        document.getElementById("resetRackBtn").style.display = "initial";
+        document.getElementById("loader").style.display = "none";
+        this.displayInfoMessage("À vous de jouer !");
+    }
+
+    searchForBestPlay() {
+        this.waitingForMaster();
+
         setTimeout(() => {
            this.bestPlay = master.getBestPlay();
            if(this.bestPlay == null) {
@@ -20,10 +36,11 @@ class Controller {
                 this.resetDraw();
            } else {
                this.redrawInARow = 0;
-               this.displayInfoMessage("À vous de jouer !");
+               this.masterIsDone();
            }
         }, 1);
     }
+
 
     resetDraw() {
         this.redrawInARow++;
@@ -44,6 +61,14 @@ class Controller {
         document.getElementById("masterscore").innerHTML = this.model.masterScore + "" + (this.model.masterLastPlay != null ? " (+" + this.model.masterLastPlay + ")" : "" );
         document.getElementById("playnumber").innerHTML = this.model.numberOfPlays + "";
         document.getElementById("letternumber").innerHTML = this.model.getNumberOfRemainingLetters() + "";
+
+        if(this.model.numberOfPlays <= sharedGame.opponentScores.length) {
+            let opponentTotalScore = getOpponentTotalScore(this.model.numberOfPlays);
+            let opponentPlayScore = getOpponentPlayScore(this.model.numberOfPlays - 1);
+            document.getElementById("opponentscore").innerHTML = opponentTotalScore + (opponentPlayScore != null ? " (+" + opponentPlayScore + ")" : "");
+
+        }
+
     }
 
     displayInfoMessage(msg) {
@@ -96,7 +121,7 @@ class Controller {
 
     masterPlay(myPlay, masterPlay) {
         this.model.addPlay(myPlay, masterPlay);
-        this.refreshScorePanel();
+
         resetRackAndBoard();
         this.removeAllTilesFromBoard();
         let word = masterPlay.word;
@@ -117,6 +142,7 @@ class Controller {
         }
 
         this.removeLettersFromRack(word);
+        //this.refreshScorePanel();
         if(this.drawTiles() == true)
             this.searchForBestPlay();
 
@@ -546,10 +572,30 @@ class Controller {
             this.finalizeGame();
             return false;
         } else {
-            for (let i = this.model.rack.length; i < this.model.nb_of_rack_riles && this.model.tiles.length; i++) {
-                let index = Math.floor(Math.random() * this.model.tiles.length);
-                this.model.rack.push(this.model.tiles[index]);
-                this.model.tiles.splice(index, 1);
+
+            if(isSharedGame() == true) {
+
+                //reset the rack
+                for(let i = 0; i < this.model.rack.length; i++) {
+                    this.model.tiles.push(this.model.rack[i]);
+                    this.model.rack.splice(i, 1);
+                    i--;
+                }
+
+                let arr = sharedGame.drawnTiles[this.model.numberOfPlays];
+                for(const tile of arr) {
+                    this.model.rack.push(tile);
+                    this.model.tiles.splice(this.model.tiles.indexOf(tile), 1)
+                }
+
+
+
+            } else {
+                for (let i = this.model.rack.length; i < this.model.nb_of_rack_riles && this.model.tiles.length; i++) {
+                    let index = Math.floor(Math.random() * this.model.tiles.length);
+                    this.model.rack.push(this.model.tiles[index]);
+                    this.model.tiles.splice(index, 1);
+                }
             }
             this.refreshView();
             return true;
@@ -558,12 +604,28 @@ class Controller {
 
     finalizeGame() {
         let btn = document.getElementById("resetRackBtn");
-        btn.disabled = true;
-        btn.classList.add("disabled");
+        btn.style.display = "none";
 
         btn = document.getElementById("playBtn");
-        btn.disabled = true;
-        btn.classList.add("disabled");
+        btn.style.display = "none";
+
+        btn = document.getElementById("shareBtn");
+        btn.style.display = "initial";
+
+    }
+
+    shareGame() {
+        let name = null;
+        while(name == null || name.length == 0) {
+            name = prompt("Pour partager cette partie, veuillez introduire votre nom", "Votre nom");
+            if(name)
+                name = name.trim();
+        }
+
+        let game = new SharedGame(name, this.model.myPlays, this.model.myRacks);
+        let sharedUrl = getSharedURL(game);
+        navigator.clipboard.writeText(sharedUrl);
+        alert("Le lien de partage a été copié.\nVous pouvez dorénavant le partager avec vos amis.");
     }
 
     isGameOver() {
@@ -631,6 +693,8 @@ class Controller {
                 document.querySelector("#js-board .tile[data-row='" + place.row + "'][data-col='" + place.column + "'] .playable-tile").classList.add("latestPlay");
             }
         }
+
+        this.refreshScorePanel();
     }
 
     getPoints() {
@@ -679,5 +743,7 @@ class Controller {
 
 
 }
+
+
 
 

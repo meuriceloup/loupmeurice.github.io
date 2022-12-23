@@ -1,4 +1,5 @@
 positionScore();
+
 function positionScore() {
     let w = window.innerWidth;
     let h = window.innerHeight;

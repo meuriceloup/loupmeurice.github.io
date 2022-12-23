@@ -102,11 +102,11 @@ function getClientX(e) {
 }
 
 function stopAutoPageScrolling(e) {
-	document.documentElement.style.overflow = 'hidden';
+	//document.documentElement.style.overflow = 'hidden';
 }
 
 function activateAutoPageScrolling(e) {
-	document.documentElement.style.overflow = 'auto';
+	//document.documentElement.style.overflow = 'auto';
 }
 
 function dragElement(elmnt) {
@@ -136,12 +136,13 @@ function dragElement(elmnt) {
 	document.addEventListener('touchend', closeDragElement);
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
-	document.addEventListener('touchmove', elementDrag);
+	document.addEventListener('touchmove', elementDrag, {passive: false});
   }
 
   function elementDrag(e) {
-    e = e || window.event;
-    //e.preventDefault();
+	e.preventDefault();
+	e.stopPropagation();
+
     // calculate the new cursor position:
     pos1 = pos3 - getClientX(e);
     pos2 = pos4 - getClientY(e);

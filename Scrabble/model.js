@@ -15,6 +15,8 @@ class Model {
 	masterScore = 0;
 	masterLastPlay = null;
 	numberOfPlays = 0;
+	myPlays = [];
+	myRacks = [];
 
 
 	constructor() {
@@ -43,15 +45,22 @@ class Model {
 
 	}
 
+	addRack() {
+		this.myRacks.push([...this.rack]);
+	}
+
 	addPlay(myPlay, masterPlay) {
 		this.myScore += myPlay;
 		this.masterScore += masterPlay.points;
 		this.numberOfPlays++;
 		this.myLastPlay = myPlay;
 		this.masterLastPlay = masterPlay.points;
+		this.myPlays.push(myPlay);
+		this.addRack();
 	}
 
 	getNumberOfRemainingLetters() {
+		console.log("refresh:" + this.tiles.length);
 		return this.tiles.length;
 	}
 
