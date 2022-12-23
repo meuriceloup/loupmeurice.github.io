@@ -38,6 +38,30 @@ class Model {
 	  	//	this.board[arr[0]][arr[1]] = this.randomLetter()
 		//}
 
+		/*this.board[14][3] = "E";
+		this.board[13][3] = "E";
+		this.board[12][3] = "R";
+		this.board[11][3] = "O";
+		this.board[11][4] = "S";
+		this.board[10][4] = "A";
+		this.board[9][4] = "D";
+		this.board[8][4] = "A";
+		this.board[7][4] = "D";
+		this.board[9][6] = "T";
+		this.board[9][7] = "E";
+		this.board[9][8] = "S";
+		this.board[9][9] = "T";
+		this.board[9][10] = "E";
+		this.board[9][11] = "E";
+		this.board[9][12] = "S";
+		this.board[8][5] = "N";
+		this.board[8][6] = "E";
+		this.board[7][5] = "E";
+		this.board[7][6] = "J";
+		this.board[7][7] = "A";
+
+		this.rack = ["F", "I", "L", "R"];
+		this.tiles = [];*/
 		//this.rack = ["L", "I", "S", "E", "U", "S", "E"];
 
 		//this.tiles = ["A", "B", "C", "D", "E", "E"];
@@ -60,7 +84,6 @@ class Model {
 	}
 
 	getNumberOfRemainingLetters() {
-		console.log("refresh:" + this.tiles.length);
 		return this.tiles.length;
 	}
 

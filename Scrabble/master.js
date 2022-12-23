@@ -18,7 +18,7 @@ class Master {
             if(last.column < this.model.column_length - 1 && this.model.board[last.row][last.column + 1] != null) //check right
                 return true;
 
-            if((last.column - first.column) + 1 < place.length) //letter in between
+            if((last.column - first.column) + 1 > place.length) //letter in between
                 return true;
 
         } else {
@@ -28,13 +28,14 @@ class Master {
             if(last.row < this.model.row_length - 1 && this.model.board[last.row + 1][last.column] != null) //check bottom
                 return true;
 
-            if((last.row - first.row) + 1 < place.length) //letter in between
+            if((last.row - first.row) + 1 > place.length) //letter in between
                 return true;
         }
 
         return false;
 
     }
+
 
 
     getBestPlay() {
@@ -146,7 +147,6 @@ class Master {
                 res = res.concat(this.getAllPossibleWords(length, word2, remaining));
             }
         }
-
         return res;
 
     }
