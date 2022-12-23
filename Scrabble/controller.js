@@ -73,7 +73,7 @@ class Controller {
 
     displayInfoMessage(msg) {
         this.infoMessageDiv.classList.remove("transparent");
-        this.infoMessageDiv.innerText = msg;
+        this.infoMessageDiv.innerHTML = msg;
     }
 
     removeInfoMessage() {
@@ -624,8 +624,8 @@ class Controller {
 
         let game = new SharedGame(name, this.model.myPlays, this.model.myRacks);
         let sharedUrl = getSharedURL(game);
-        navigator.clipboard.writeText(sharedUrl);
-        alert("Le lien de partage a été copié.\nVous pouvez dorénavant le partager avec vos amis.");
+        this.displayInfoMessage("<a href='" + sharedUrl + "' target='_blank'>Lien de partage</a>");
+        alert("Le lien de partage a été généré et se trouve dans votre boite de dialogue. Vous pouvez dorénavant l'envoyer à vos amis !");
     }
 
     isGameOver() {
