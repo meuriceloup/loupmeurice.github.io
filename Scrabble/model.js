@@ -65,8 +65,7 @@ class Model {
 		//this.rack = ["L", "I", "S", "E", "U", "S", "E"];
 
 		//this.tiles = ["A", "B", "C", "D", "E", "E"];
-		this.rack = ["A", "A", "B"];
-		this.tiles = [];
+	
 
 	}
 
